@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* Catholic_DioceseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Catholic_DioceseAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		28216C970DB411BC00E5133A /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* NewsViewController.m */; };
+		282CCBFE0DB6C98000C4EA27 /* PrayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282CCBFD0DB6C98000C4EA27 /* PrayerView.xib */; };
+		2840D7CE1179279E00D7F93C /* NewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2840D7CD1179279E00D7F93C /* NewsView.xib */; };
+		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		B05DADDA130268130073FFA8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B05DADD9130268130073FFA8 /* Default.png */; };
+		B0720538130A0FD800CCE80D /* JJGNewsCellReference.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0720537130A0FD800CCE80D /* JJGNewsCellReference.xib */; };
+		B0720540130A11AA00CCE80D /* JJGNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B072053F130A11AA00CCE80D /* JJGNewsCell.m */; };
+		B07205A1130A216D00CCE80D /* default-news-article-image.png in Resources */ = {isa = PBXBuildFile; fileRef = B07205A0130A216D00CCE80D /* default-news-article-image.png */; };
+		B095DA101311A68A007E361C /* ParishEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = B095DA0F1311A68A007E361C /* ParishEvents.m */; };
+		B095DA261311B1AF007E361C /* ParishData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B095DA251311B1AF007E361C /* ParishData.xcdatamodeld */; };
+		B095DA8E1311BECD007E361C /* ParishData 2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = B095DA271311B1AF007E361C /* ParishData 2.xcdatamodel */; };
+		B0A834AE1301912B00918C9E /* tab-map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A834A81301912B00918C9E /* tab-map.png */; };
+		B0A834AF1301912B00918C9E /* tab-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A834A91301912B00918C9E /* tab-map@2x.png */; };
+		B0A834B61301917700918C9E /* tab-news.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A834B41301917700918C9E /* tab-news.png */; };
+		B0A834B71301917700918C9E /* tab-news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A834B51301917700918C9E /* tab-news@2x.png */; };
+		B0A834D91301937C00918C9E /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A834D71301937C00918C9E /* location.png */; };
+		B0A834DA1301937C00918C9E /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A834D81301937C00918C9E /* location@2x.png */; };
+		B0DC207A12FBC0B700DDB5CD /* PrayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DC207912FBC0B700DDB5CD /* PrayerViewController.m */; };
+		B0DC207D12FBC0D500DDB5CD /* ParishMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DC207C12FBC0D500DDB5CD /* ParishMapViewController.m */; };
+		B0E9550B130B6D880065D5FD /* tab-prayer.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E95509130B6D880065D5FD /* tab-prayer.png */; };
+		B0E9550C130B6D880065D5FD /* tab-prayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E9550A130B6D880065D5FD /* tab-prayer@2x.png */; };
+		C30276EE1301E68F00625F54 /* ParishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C30276EC1301E68F00625F54 /* ParishDetailViewController.m */; };
+		C30276EF1301E68F00625F54 /* ParishDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30276ED1301E68F00625F54 /* ParishDetailView.xib */; };
+		C3086774130F061300055A3B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3086773130F061300055A3B /* AddressBook.framework */; };
+		C30BB82F130A494F00D32BA8 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB829130A494F00D32BA8 /* EGOImageLoadConnection.m */; };
+		C30BB830130A494F00D32BA8 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB82B130A494F00D32BA8 /* EGOImageLoader.m */; };
+		C30BB831130A494F00D32BA8 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB82E130A494F00D32BA8 /* EGOImageView.m */; };
+		C30BB846130A4C4700D32BA8 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB845130A4C4700D32BA8 /* EGOCache.m */; };
+		C322B771130B000B00D836C5 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B76D130B000B00D836C5 /* back-arrow.png */; };
+		C322B772130B000B00D836C5 /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B76E130B000B00D836C5 /* back-arrow@2x.png */; };
+		C322B773130B000B00D836C5 /* forward-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B76F130B000B00D836C5 /* forward-arrow.png */; };
+		C322B774130B000B00D836C5 /* forward-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B770130B000B00D836C5 /* forward-arrow@2x.png */; };
+		C322B7F7130B1AA100D836C5 /* JJGCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = C322B7F6130B1AA100D836C5 /* JJGCLController.m */; };
+		C322B896130B33F700D836C5 /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C322B895130B33F700D836C5 /* DSActivityView.m */; };
+		C339A2D913124E08007D39DD /* ParishData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C339A2D813124E08007D39DD /* ParishData.sqlite */; };
+		C35F884612FF178B000AAE5F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35F884512FF178B000AAE5F /* CoreData.framework */; };
+		C35F887812FF1A75000AAE5F /* Parish.m in Sources */ = {isa = PBXBuildFile; fileRef = C35F887712FF1A75000AAE5F /* Parish.m */; };
+		C36F15CD12F4BCFA00B46634 /* ParishMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36F15CC12F4BCFA00B46634 /* ParishMapView.xib */; };
+		C36F15EC12F4C34300B46634 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36F15EB12F4C34300B46634 /* CoreLocation.framework */; };
+		C36F15EE12F4C34300B46634 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36F15ED12F4C34300B46634 /* MapKit.framework */; };
+		C370A2561315AA5600FBCFA7 /* tab-info.png in Resources */ = {isa = PBXBuildFile; fileRef = C370A2541315AA5600FBCFA7 /* tab-info.png */; };
+		C370A2571315AA5600FBCFA7 /* tab-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C370A2551315AA5600FBCFA7 /* tab-info@2x.png */; };
+		C370A25D1315AA8E00FBCFA7 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C370A25B1315AA8E00FBCFA7 /* AboutViewController.m */; };
+		C370A25E1315AA8E00FBCFA7 /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C370A25C1315AA8E00FBCFA7 /* AboutView.xib */; };
+		C370A2621315BA2100FBCFA7 /* about-header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C370A2601315BA2100FBCFA7 /* about-header.jpg */; };
+		C370A2631315BA2100FBCFA7 /* about-header@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C370A2611315BA2100FBCFA7 /* about-header@2x.jpg */; };
+		C370B4C81301C78D00D3ECCD /* ParishNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C370B4C61301C78D00D3ECCD /* ParishNavController.xib */; };
+		C370B4E41301C9D200D3ECCD /* ParishNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = C370B4E31301C9D200D3ECCD /* ParishNavController.m */; };
+		C379EDB0131A2EC10092F968 /* NewsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = C379EDAE131A2EC10092F968 /* NewsNavController.m */; };
+		C379EDB1131A2EC10092F968 /* NewsNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C379EDAF131A2EC10092F968 /* NewsNavController.xib */; };
+		C3AA8E9013034F55007899DD /* ParishSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AA8E8E13034F55007899DD /* ParishSearchViewController.m */; };
+		C3AA8E9113034F55007899DD /* ParishSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AA8E8F13034F55007899DD /* ParishSearchView.xib */; };
+		C3AEE471130E26C700ED7B8F /* AddPrayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AEE46F130E26C700ED7B8F /* AddPrayerViewController.m */; };
+		C3AEE472130E26C700ED7B8F /* AddPrayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AEE470130E26C700ED7B8F /* AddPrayerView.xib */; };
+		C3AEE477130E2A7300ED7B8F /* PrayerNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AEE475130E2A7300ED7B8F /* PrayerNavController.m */; };
+		C3AEE478130E2A7300ED7B8F /* PrayerNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AEE476130E2A7300ED7B8F /* PrayerNavController.xib */; };
+		C3C26E311340ED2800E1B5C1 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C26E281340ED2800E1B5C1 /* CHCSVParser.m */; };
+		C3C26E331340ED2800E1B5C1 /* CHCSVSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C26E2C1340ED2800E1B5C1 /* CHCSVSupport.m */; };
+		C3C26E341340ED2800E1B5C1 /* NSArray+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C26E2E1340ED2800E1B5C1 /* NSArray+CHCSVAdditions.m */; };
+		C3C26E351340ED2800E1B5C1 /* NSString+CHCSVAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C26E301340ED2800E1B5C1 /* NSString+CHCSVAdditions.m */; };
+		C3C26E481340EF5300E1B5C1 /* CHCSVWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C26E471340EF5300E1B5C1 /* CHCSVWriter.m */; };
+		C3D515FC1302F05A00B58D38 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D515F51302F05A00B58D38 /* Icon-29.png */; };
+		C3D515FD1302F05A00B58D38 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D515F61302F05A00B58D38 /* Icon-50.png */; };
+		C3D515FE1302F05A00B58D38 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D515F71302F05A00B58D38 /* Icon-57.png */; };
+		C3D515FF1302F05A00B58D38 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D515F81302F05A00B58D38 /* Icon-58.png */; };
+		C3D516001302F05A00B58D38 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D515F91302F05A00B58D38 /* Icon-72.png */; };
+		C3D516011302F05A00B58D38 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D515FA1302F05A00B58D38 /* Icon-114.png */; };
+		C3D516021302F05A00B58D38 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C3D515FB1302F05A00B58D38 /* iTunesArtwork */; };
+		C3D5B5761305E56600465775 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D5B5741305E56600465775 /* WebViewController.m */; };
+		C3D5B5771305E56600465775 /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D5B5751305E56600465775 /* WebView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* Catholic_DioceseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Catholic_DioceseAppDelegate.h; path = Classes/Catholic_DioceseAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* Catholic_DioceseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Catholic_DioceseAppDelegate.m; path = Classes/Catholic_DioceseAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Catholic STL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Catholic STL.app"; path = "Catholic Diocese.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28216C950DB411BC00E5133A /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		28216C960DB411BC00E5133A /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		282CCBFD0DB6C98000C4EA27 /* PrayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PrayerView.xib; path = ../PrayerView.xib; sourceTree = "<group>"; };
+		2840D7CD1179279E00D7F93C /* NewsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewsView.xib; path = ../NewsView.xib; sourceTree = "<group>"; };
+		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AB4B0D9B1048005BE974 /* Catholic_Diocese_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catholic_Diocese_Prefix.pch; sourceTree = "<group>"; };
+		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Catholic_Diocese-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Catholic_Diocese-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B05DADD9130268130073FFA8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B0720537130A0FD800CCE80D /* JJGNewsCellReference.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JJGNewsCellReference.xib; sourceTree = "<group>"; };
+		B072053E130A11AA00CCE80D /* JJGNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJGNewsCell.h; sourceTree = "<group>"; };
+		B072053F130A11AA00CCE80D /* JJGNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJGNewsCell.m; sourceTree = "<group>"; };
+		B07205A0130A216D00CCE80D /* default-news-article-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-news-article-image.png"; sourceTree = "<group>"; };
+		B095DA0E1311A68A007E361C /* ParishEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishEvents.h; sourceTree = "<group>"; };
+		B095DA0F1311A68A007E361C /* ParishEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishEvents.m; sourceTree = "<group>"; };
+		B095DA271311B1AF007E361C /* ParishData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ParishData 2.xcdatamodel"; sourceTree = "<group>"; };
+		B0A834A81301912B00918C9E /* tab-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-map.png"; sourceTree = "<group>"; };
+		B0A834A91301912B00918C9E /* tab-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-map@2x.png"; sourceTree = "<group>"; };
+		B0A834B41301917700918C9E /* tab-news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-news.png"; sourceTree = "<group>"; };
+		B0A834B51301917700918C9E /* tab-news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-news@2x.png"; sourceTree = "<group>"; };
+		B0A834D71301937C00918C9E /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		B0A834D81301937C00918C9E /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		B0DC207812FBC0B700DDB5CD /* PrayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerViewController.h; sourceTree = "<group>"; };
+		B0DC207912FBC0B700DDB5CD /* PrayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerViewController.m; sourceTree = "<group>"; };
+		B0DC207B12FBC0D500DDB5CD /* ParishMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishMapViewController.h; sourceTree = "<group>"; };
+		B0DC207C12FBC0D500DDB5CD /* ParishMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishMapViewController.m; sourceTree = "<group>"; };
+		B0E95509130B6D880065D5FD /* tab-prayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-prayer.png"; sourceTree = "<group>"; };
+		B0E9550A130B6D880065D5FD /* tab-prayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-prayer@2x.png"; sourceTree = "<group>"; };
+		C30276EB1301E68F00625F54 /* ParishDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishDetailViewController.h; sourceTree = "<group>"; };
+		C30276EC1301E68F00625F54 /* ParishDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishDetailViewController.m; sourceTree = "<group>"; };
+		C30276ED1301E68F00625F54 /* ParishDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParishDetailView.xib; sourceTree = "<group>"; };
+		C3086773130F061300055A3B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C30BB828130A494F00D32BA8 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		C30BB829130A494F00D32BA8 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		C30BB82A130A494F00D32BA8 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		C30BB82B130A494F00D32BA8 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		C30BB82D130A494F00D32BA8 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
+		C30BB82E130A494F00D32BA8 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
+		C30BB844130A4C4700D32BA8 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		C30BB845130A4C4700D32BA8 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		C322B76D130B000B00D836C5 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
+		C322B76E130B000B00D836C5 /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
+		C322B76F130B000B00D836C5 /* forward-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-arrow.png"; sourceTree = "<group>"; };
+		C322B770130B000B00D836C5 /* forward-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-arrow@2x.png"; sourceTree = "<group>"; };
+		C322B7F5130B1AA100D836C5 /* JJGCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJGCLController.h; sourceTree = "<group>"; };
+		C322B7F6130B1AA100D836C5 /* JJGCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJGCLController.m; sourceTree = "<group>"; };
+		C322B894130B33F700D836C5 /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActivityView.h; sourceTree = "<group>"; };
+		C322B895130B33F700D836C5 /* DSActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSActivityView.m; sourceTree = "<group>"; };
+		C339A2D813124E08007D39DD /* ParishData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ParishData.sqlite; sourceTree = "<group>"; };
+		C35F884512FF178B000AAE5F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C35F886312FF1806000AAE5F /* ParishData.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = ParishData.xcdatamodel; sourceTree = "<group>"; };
+		C35F887612FF1A75000AAE5F /* Parish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parish.h; sourceTree = "<group>"; };
+		C35F887712FF1A75000AAE5F /* Parish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parish.m; sourceTree = "<group>"; };
+		C36F15CC12F4BCFA00B46634 /* ParishMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ParishMapView.xib; path = ../ParishMapView.xib; sourceTree = "<group>"; };
+		C36F15EB12F4C34300B46634 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C36F15ED12F4C34300B46634 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C370A2541315AA5600FBCFA7 /* tab-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-info.png"; sourceTree = "<group>"; };
+		C370A2551315AA5600FBCFA7 /* tab-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-info@2x.png"; sourceTree = "<group>"; };
+		C370A25A1315AA8E00FBCFA7 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		C370A25B1315AA8E00FBCFA7 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		C370A25C1315AA8E00FBCFA7 /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
+		C370A2601315BA2100FBCFA7 /* about-header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "about-header.jpg"; sourceTree = "<group>"; };
+		C370A2611315BA2100FBCFA7 /* about-header@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "about-header@2x.jpg"; sourceTree = "<group>"; };
+		C370B4C61301C78D00D3ECCD /* ParishNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParishNavController.xib; sourceTree = "<group>"; };
+		C370B4E21301C9D200D3ECCD /* ParishNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishNavController.h; sourceTree = "<group>"; };
+		C370B4E31301C9D200D3ECCD /* ParishNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishNavController.m; sourceTree = "<group>"; };
+		C379EDAD131A2EC10092F968 /* NewsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsNavController.h; sourceTree = "<group>"; };
+		C379EDAE131A2EC10092F968 /* NewsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsNavController.m; sourceTree = "<group>"; };
+		C379EDAF131A2EC10092F968 /* NewsNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsNavController.xib; sourceTree = "<group>"; };
+		C3AA8E8D13034F55007899DD /* ParishSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishSearchViewController.h; sourceTree = "<group>"; };
+		C3AA8E8E13034F55007899DD /* ParishSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishSearchViewController.m; sourceTree = "<group>"; };
+		C3AA8E8F13034F55007899DD /* ParishSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParishSearchView.xib; sourceTree = "<group>"; };
+		C3AEE46E130E26C700ED7B8F /* AddPrayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrayerViewController.h; sourceTree = "<group>"; };
+		C3AEE46F130E26C700ED7B8F /* AddPrayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrayerViewController.m; sourceTree = "<group>"; };
+		C3AEE470130E26C700ED7B8F /* AddPrayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPrayerView.xib; sourceTree = "<group>"; };
+		C3AEE474130E2A7300ED7B8F /* PrayerNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerNavController.h; sourceTree = "<group>"; };
+		C3AEE475130E2A7300ED7B8F /* PrayerNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerNavController.m; sourceTree = "<group>"; };
+		C3AEE476130E2A7300ED7B8F /* PrayerNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrayerNavController.xib; sourceTree = "<group>"; };
+		C3C26E261340ED2800E1B5C1 /* CHCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSV.h; sourceTree = "<group>"; };
+		C3C26E271340ED2800E1B5C1 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		C3C26E281340ED2800E1B5C1 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		C3C26E2B1340ED2800E1B5C1 /* CHCSVSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVSupport.h; sourceTree = "<group>"; };
+		C3C26E2C1340ED2800E1B5C1 /* CHCSVSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVSupport.m; sourceTree = "<group>"; };
+		C3C26E2D1340ED2800E1B5C1 /* NSArray+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		C3C26E2E1340ED2800E1B5C1 /* NSArray+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		C3C26E2F1340ED2800E1B5C1 /* NSString+CHCSVAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CHCSVAdditions.h"; sourceTree = "<group>"; };
+		C3C26E301340ED2800E1B5C1 /* NSString+CHCSVAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CHCSVAdditions.m"; sourceTree = "<group>"; };
+		C3C26E461340EF5300E1B5C1 /* CHCSVWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVWriter.h; sourceTree = "<group>"; };
+		C3C26E471340EF5300E1B5C1 /* CHCSVWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVWriter.m; sourceTree = "<group>"; };
+		C3D515F51302F05A00B58D38 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
+		C3D515F61302F05A00B58D38 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		C3D515F71302F05A00B58D38 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
+		C3D515F81302F05A00B58D38 /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = "<group>"; };
+		C3D515F91302F05A00B58D38 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		C3D515FA1302F05A00B58D38 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
+		C3D515FB1302F05A00B58D38 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		C3D5B5731305E56600465775 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		C3D5B5741305E56600465775 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		C3D5B5751305E56600465775 /* WebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				C36F15EC12F4C34300B46634 /* CoreLocation.framework in Frameworks */,
+				C36F15EE12F4C34300B46634 /* MapKit.framework in Frameworks */,
+				C35F884612FF178B000AAE5F /* CoreData.framework in Frameworks */,
+				C3086774130F061300055A3B /* AddressBook.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3AA5E5B130E1F8900CB99CE /* Parishes */,
+				C3AA5E5D130E1FA900CB99CE /* News */,
+				C3AA5E5E130E1FC300CB99CE /* Prayers */,
+				C370A2591315AA6D00FBCFA7 /* About */,
+				C3D5B5731305E56600465775 /* WebViewController.h */,
+				C3D5B5741305E56600465775 /* WebViewController.m */,
+				C3D5B5751305E56600465775 /* WebView.xib */,
+				C322B7F5130B1AA100D836C5 /* JJGCLController.h */,
+				C322B7F6130B1AA100D836C5 /* JJGCLController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Catholic STL.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Catholic STL */ = {
+			isa = PBXGroup;
+			children = (
+				C322B891130B33ED00D836C5 /* DSActivityView */,
+				C3C26E251340ED2800E1B5C1 /* CHCSVParser */,
+				C30BB820130A493500D32BA8 /* EGOImageLoading */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				C35F88F912FF408E000AAE5F /* Model Classes */,
+				C35F88FC12FF40A7000AAE5F /* Application Delegate */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Catholic STL";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AB4B0D9B1048005BE974 /* Catholic_Diocese_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Catholic_Diocese-Info.plist */,
+				B095DA251311B1AF007E361C /* ParishData.xcdatamodeld */,
+				C339A2D813124E08007D39DD /* ParishData.sqlite */,
+				B07205A0130A216D00CCE80D /* default-news-article-image.png */,
+				B05DADD9130268130073FFA8 /* Default.png */,
+				C370A2601315BA2100FBCFA7 /* about-header.jpg */,
+				C370A2611315BA2100FBCFA7 /* about-header@2x.jpg */,
+				C322B75E130AFFF000D836C5 /* Other Buttons */,
+				C322B75D130AFFD500D836C5 /* Tab Button Images */,
+				B072059A130A204B00CCE80D /* Icons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765070DF74369002DB57D /* CoreGraphics.framework */,
+				C35F884512FF178B000AAE5F /* CoreData.framework */,
+				C36F15EB12F4C34300B46634 /* CoreLocation.framework */,
+				C36F15ED12F4C34300B46634 /* MapKit.framework */,
+				C3086773130F061300055A3B /* AddressBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B072059A130A204B00CCE80D /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				C3D515F51302F05A00B58D38 /* Icon-29.png */,
+				C3D515F61302F05A00B58D38 /* Icon-50.png */,
+				C3D515F71302F05A00B58D38 /* Icon-57.png */,
+				C3D515F81302F05A00B58D38 /* Icon-58.png */,
+				C3D515F91302F05A00B58D38 /* Icon-72.png */,
+				C3D515FA1302F05A00B58D38 /* Icon-114.png */,
+				C3D515FB1302F05A00B58D38 /* iTunesArtwork */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		C30BB820130A493500D32BA8 /* EGOImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				C30BB843130A4C4700D32BA8 /* EGOCache */,
+				C30BB827130A494F00D32BA8 /* EGOImageLoader */,
+				C30BB82C130A494F00D32BA8 /* EGOImageView */,
+			);
+			name = EGOImageLoading;
+			sourceTree = "<group>";
+		};
+		C30BB827130A494F00D32BA8 /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				C30BB828130A494F00D32BA8 /* EGOImageLoadConnection.h */,
+				C30BB829130A494F00D32BA8 /* EGOImageLoadConnection.m */,
+				C30BB82A130A494F00D32BA8 /* EGOImageLoader.h */,
+				C30BB82B130A494F00D32BA8 /* EGOImageLoader.m */,
+			);
+			path = EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		C30BB82C130A494F00D32BA8 /* EGOImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C30BB82D130A494F00D32BA8 /* EGOImageView.h */,
+				C30BB82E130A494F00D32BA8 /* EGOImageView.m */,
+			);
+			path = EGOImageView;
+			sourceTree = "<group>";
+		};
+		C30BB843130A4C4700D32BA8 /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				C30BB844130A4C4700D32BA8 /* EGOCache.h */,
+				C30BB845130A4C4700D32BA8 /* EGOCache.m */,
+			);
+			path = EGOCache;
+			sourceTree = "<group>";
+		};
+		C322B75D130AFFD500D836C5 /* Tab Button Images */ = {
+			isa = PBXGroup;
+			children = (
+				B0A834A81301912B00918C9E /* tab-map.png */,
+				B0A834A91301912B00918C9E /* tab-map@2x.png */,
+				B0A834B41301917700918C9E /* tab-news.png */,
+				B0A834B51301917700918C9E /* tab-news@2x.png */,
+				B0E95509130B6D880065D5FD /* tab-prayer.png */,
+				B0E9550A130B6D880065D5FD /* tab-prayer@2x.png */,
+				C370A2541315AA5600FBCFA7 /* tab-info.png */,
+				C370A2551315AA5600FBCFA7 /* tab-info@2x.png */,
+			);
+			name = "Tab Button Images";
+			sourceTree = "<group>";
+		};
+		C322B75E130AFFF000D836C5 /* Other Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B0A834D71301937C00918C9E /* location.png */,
+				B0A834D81301937C00918C9E /* location@2x.png */,
+				C322B76D130B000B00D836C5 /* back-arrow.png */,
+				C322B76E130B000B00D836C5 /* back-arrow@2x.png */,
+				C322B76F130B000B00D836C5 /* forward-arrow.png */,
+				C322B770130B000B00D836C5 /* forward-arrow@2x.png */,
+			);
+			name = "Other Buttons";
+			sourceTree = "<group>";
+		};
+		C322B891130B33ED00D836C5 /* DSActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				C322B894130B33F700D836C5 /* DSActivityView.h */,
+				C322B895130B33F700D836C5 /* DSActivityView.m */,
+			);
+			name = DSActivityView;
+			sourceTree = "<group>";
+		};
+		C35F88F912FF408E000AAE5F /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C35F887612FF1A75000AAE5F /* Parish.h */,
+				C35F887712FF1A75000AAE5F /* Parish.m */,
+				B095DA0E1311A68A007E361C /* ParishEvents.h */,
+				B095DA0F1311A68A007E361C /* ParishEvents.m */,
+			);
+			name = "Model Classes";
+			sourceTree = "<group>";
+		};
+		C35F88FC12FF40A7000AAE5F /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* Catholic_DioceseAppDelegate.h */,
+				1D3623250D0F684500981E51 /* Catholic_DioceseAppDelegate.m */,
+			);
+			name = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		C370A2591315AA6D00FBCFA7 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				C370A25A1315AA8E00FBCFA7 /* AboutViewController.h */,
+				C370A25B1315AA8E00FBCFA7 /* AboutViewController.m */,
+				C370A25C1315AA8E00FBCFA7 /* AboutView.xib */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		C3AA5E5B130E1F8900CB99CE /* Parishes */ = {
+			isa = PBXGroup;
+			children = (
+				C370B4E21301C9D200D3ECCD /* ParishNavController.h */,
+				C370B4E31301C9D200D3ECCD /* ParishNavController.m */,
+				C370B4C61301C78D00D3ECCD /* ParishNavController.xib */,
+				B0DC207B12FBC0D500DDB5CD /* ParishMapViewController.h */,
+				B0DC207C12FBC0D500DDB5CD /* ParishMapViewController.m */,
+				C36F15CC12F4BCFA00B46634 /* ParishMapView.xib */,
+				C3AA8E8D13034F55007899DD /* ParishSearchViewController.h */,
+				C3AA8E8E13034F55007899DD /* ParishSearchViewController.m */,
+				C3AA8E8F13034F55007899DD /* ParishSearchView.xib */,
+				C30276EB1301E68F00625F54 /* ParishDetailViewController.h */,
+				C30276EC1301E68F00625F54 /* ParishDetailViewController.m */,
+				C30276ED1301E68F00625F54 /* ParishDetailView.xib */,
+			);
+			name = Parishes;
+			sourceTree = "<group>";
+		};
+		C3AA5E5D130E1FA900CB99CE /* News */ = {
+			isa = PBXGroup;
+			children = (
+				C379EDAD131A2EC10092F968 /* NewsNavController.h */,
+				C379EDAE131A2EC10092F968 /* NewsNavController.m */,
+				C379EDAF131A2EC10092F968 /* NewsNavController.xib */,
+				28216C950DB411BC00E5133A /* NewsViewController.h */,
+				28216C960DB411BC00E5133A /* NewsViewController.m */,
+				2840D7CD1179279E00D7F93C /* NewsView.xib */,
+				B072053E130A11AA00CCE80D /* JJGNewsCell.h */,
+				B072053F130A11AA00CCE80D /* JJGNewsCell.m */,
+				B0720537130A0FD800CCE80D /* JJGNewsCellReference.xib */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		C3AA5E5E130E1FC300CB99CE /* Prayers */ = {
+			isa = PBXGroup;
+			children = (
+				C3AEE474130E2A7300ED7B8F /* PrayerNavController.h */,
+				C3AEE475130E2A7300ED7B8F /* PrayerNavController.m */,
+				C3AEE476130E2A7300ED7B8F /* PrayerNavController.xib */,
+				B0DC207812FBC0B700DDB5CD /* PrayerViewController.h */,
+				B0DC207912FBC0B700DDB5CD /* PrayerViewController.m */,
+				282CCBFD0DB6C98000C4EA27 /* PrayerView.xib */,
+				C3AEE46E130E26C700ED7B8F /* AddPrayerViewController.h */,
+				C3AEE46F130E26C700ED7B8F /* AddPrayerViewController.m */,
+				C3AEE470130E26C700ED7B8F /* AddPrayerView.xib */,
+			);
+			name = Prayers;
+			sourceTree = "<group>";
+		};
+		C3C26E251340ED2800E1B5C1 /* CHCSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				C3C26E261340ED2800E1B5C1 /* CHCSV.h */,
+				C3C26E271340ED2800E1B5C1 /* CHCSVParser.h */,
+				C3C26E281340ED2800E1B5C1 /* CHCSVParser.m */,
+				C3C26E461340EF5300E1B5C1 /* CHCSVWriter.h */,
+				C3C26E471340EF5300E1B5C1 /* CHCSVWriter.m */,
+				C3C26E2B1340ED2800E1B5C1 /* CHCSVSupport.h */,
+				C3C26E2C1340ED2800E1B5C1 /* CHCSVSupport.m */,
+				C3C26E2D1340ED2800E1B5C1 /* NSArray+CHCSVAdditions.h */,
+				C3C26E2E1340ED2800E1B5C1 /* NSArray+CHCSVAdditions.m */,
+				C3C26E2F1340ED2800E1B5C1 /* NSString+CHCSVAdditions.h */,
+				C3C26E301340ED2800E1B5C1 /* NSString+CHCSVAdditions.m */,
+			);
+			name = CHCSVParser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Catholic Diocese */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Catholic Diocese" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Catholic Diocese";
+			productName = "Catholic STL";
+			productReference = 1D6058910D05DD3D006BFB54 /* Catholic STL.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Catholic Diocese" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Catholic STL */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Catholic Diocese */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
+				282CCBFE0DB6C98000C4EA27 /* PrayerView.xib in Resources */,
+				2840D7CE1179279E00D7F93C /* NewsView.xib in Resources */,
+				C36F15CD12F4BCFA00B46634 /* ParishMapView.xib in Resources */,
+				B0A834AE1301912B00918C9E /* tab-map.png in Resources */,
+				B0A834AF1301912B00918C9E /* tab-map@2x.png in Resources */,
+				B0A834B61301917700918C9E /* tab-news.png in Resources */,
+				B0A834B71301917700918C9E /* tab-news@2x.png in Resources */,
+				B0A834D91301937C00918C9E /* location.png in Resources */,
+				B0A834DA1301937C00918C9E /* location@2x.png in Resources */,
+				C370B4C81301C78D00D3ECCD /* ParishNavController.xib in Resources */,
+				C30276EF1301E68F00625F54 /* ParishDetailView.xib in Resources */,
+				B05DADDA130268130073FFA8 /* Default.png in Resources */,
+				C3D515FC1302F05A00B58D38 /* Icon-29.png in Resources */,
+				C3D515FD1302F05A00B58D38 /* Icon-50.png in Resources */,
+				C3D515FE1302F05A00B58D38 /* Icon-57.png in Resources */,
+				C3D515FF1302F05A00B58D38 /* Icon-58.png in Resources */,
+				C3D516001302F05A00B58D38 /* Icon-72.png in Resources */,
+				C3D516011302F05A00B58D38 /* Icon-114.png in Resources */,
+				C3D516021302F05A00B58D38 /* iTunesArtwork in Resources */,
+				C3AA8E9113034F55007899DD /* ParishSearchView.xib in Resources */,
+				C3D5B5771305E56600465775 /* WebView.xib in Resources */,
+				B0720538130A0FD800CCE80D /* JJGNewsCellReference.xib in Resources */,
+				B07205A1130A216D00CCE80D /* default-news-article-image.png in Resources */,
+				C322B771130B000B00D836C5 /* back-arrow.png in Resources */,
+				C322B772130B000B00D836C5 /* back-arrow@2x.png in Resources */,
+				C322B773130B000B00D836C5 /* forward-arrow.png in Resources */,
+				C322B774130B000B00D836C5 /* forward-arrow@2x.png in Resources */,
+				B0E9550B130B6D880065D5FD /* tab-prayer.png in Resources */,
+				B0E9550C130B6D880065D5FD /* tab-prayer@2x.png in Resources */,
+				C3AEE472130E26C700ED7B8F /* AddPrayerView.xib in Resources */,
+				C3AEE478130E2A7300ED7B8F /* PrayerNavController.xib in Resources */,
+				C339A2D913124E08007D39DD /* ParishData.sqlite in Resources */,
+				C370A2561315AA5600FBCFA7 /* tab-info.png in Resources */,
+				C370A2571315AA5600FBCFA7 /* tab-info@2x.png in Resources */,
+				C370A25E1315AA8E00FBCFA7 /* AboutView.xib in Resources */,
+				C370A2621315BA2100FBCFA7 /* about-header.jpg in Resources */,
+				C370A2631315BA2100FBCFA7 /* about-header@2x.jpg in Resources */,
+				C379EDB1131A2EC10092F968 /* NewsNavController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* Catholic_DioceseAppDelegate.m in Sources */,
+				28216C970DB411BC00E5133A /* NewsViewController.m in Sources */,
+				B0DC207A12FBC0B700DDB5CD /* PrayerViewController.m in Sources */,
+				B0DC207D12FBC0D500DDB5CD /* ParishMapViewController.m in Sources */,
+				B095DA261311B1AF007E361C /* ParishData.xcdatamodeld in Sources */,
+				C35F887812FF1A75000AAE5F /* Parish.m in Sources */,
+				C370B4E41301C9D200D3ECCD /* ParishNavController.m in Sources */,
+				C30276EE1301E68F00625F54 /* ParishDetailViewController.m in Sources */,
+				C3AA8E9013034F55007899DD /* ParishSearchViewController.m in Sources */,
+				C3D5B5761305E56600465775 /* WebViewController.m in Sources */,
+				B0720540130A11AA00CCE80D /* JJGNewsCell.m in Sources */,
+				C30BB82F130A494F00D32BA8 /* EGOImageLoadConnection.m in Sources */,
+				C30BB830130A494F00D32BA8 /* EGOImageLoader.m in Sources */,
+				C30BB831130A494F00D32BA8 /* EGOImageView.m in Sources */,
+				C30BB846130A4C4700D32BA8 /* EGOCache.m in Sources */,
+				C322B7F7130B1AA100D836C5 /* JJGCLController.m in Sources */,
+				C322B896130B33F700D836C5 /* DSActivityView.m in Sources */,
+				C3AEE471130E26C700ED7B8F /* AddPrayerViewController.m in Sources */,
+				C3AEE477130E2A7300ED7B8F /* PrayerNavController.m in Sources */,
+				B095DA101311A68A007E361C /* ParishEvents.m in Sources */,
+				B095DA8E1311BECD007E361C /* ParishData 2.xcdatamodel in Sources */,
+				C370A25D1315AA8E00FBCFA7 /* AboutViewController.m in Sources */,
+				C379EDB0131A2EC10092F968 /* NewsNavController.m in Sources */,
+				C3C26E311340ED2800E1B5C1 /* CHCSVParser.m in Sources */,
+				C3C26E331340ED2800E1B5C1 /* CHCSVSupport.m in Sources */,
+				C3C26E341340ED2800E1B5C1 /* NSArray+CHCSVAdditions.m in Sources */,
+				C3C26E351340ED2800E1B5C1 /* NSString+CHCSVAdditions.m in Sources */,
+				C3C26E481340EF5300E1B5C1 /* CHCSVWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Catholic_Diocese_Prefix.pch;
+				INFOPLIST_FILE = "Catholic_Diocese-Info.plist";
+				PRODUCT_NAME = "Catholic Diocese";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jeff Geerling";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Catholic_Diocese_Prefix.pch;
+				INFOPLIST_FILE = "Catholic_Diocese-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PRODUCT_NAME = "Catholic Diocese";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeff Geerling (K5S65ZPH22)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "438C6FD1-A287-4DBF-979E-2EC4F36155C7";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Catholic Diocese" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Catholic Diocese" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B095DA251311B1AF007E361C /* ParishData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C35F886312FF1806000AAE5F /* ParishData.xcdatamodel */,
+				B095DA271311B1AF007E361C /* ParishData 2.xcdatamodel */,
+			);
+			currentVersion = B095DA271311B1AF007E361C /* ParishData 2.xcdatamodel */;
+			path = ParishData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

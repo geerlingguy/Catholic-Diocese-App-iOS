@@ -1,0 +1,12 @@
+//
+// Prefix header for all source files of the 'Catholic STL' target in the 'Catholic STL' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <MapKit/MapKit.h>
+    #import <CoreLocation/CoreLocation.h>
+    #import <CoreData/CoreData.h>
+	#import <AddressBook/AddressBook.h>
+#endif
