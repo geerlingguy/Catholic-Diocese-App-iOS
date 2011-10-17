@@ -1,5 +1,7 @@
 # Catholic Diocese App
 
+## About
+
 The Catholic Diocese App was created in 2011 by Jeff Geerling of Midwestern Mac, LLC, originally for the Archdiocese of St. Louis, MO, USA. The app was intended to help not only the St. Louis Archdiocese, but also any other diocese that wanted to build an App for iOS devices.
 
 ## Current Status
@@ -19,6 +21,6 @@ Please help us make this app even better!
 
 ## Credits
 
-App originally created by Jeff Geerling in 2011.
-Original app development supported by the Archdiocese of St. Louis.
-Further improvements sponsored by Midwestern Mac, LLC, Open Source Catholic, etc.
+  - App originally created by Jeff Geerling in 2011.
+  - Original app development supported by the Archdiocese of St. Louis.
+  - Further improvements sponsored by Midwestern Mac, LLC, Open Source Catholic, etc.
