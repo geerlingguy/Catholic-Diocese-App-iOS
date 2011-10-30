@@ -24,11 +24,11 @@
 	
 }
 
-@property (nonatomic,retain) AppDelegate *mainAppDelegate;
-@property (nonatomic,retain) UIWebView *webView;
-@property (nonatomic,retain) NSURL *webViewURL;
-@property (nonatomic,retain) UIBarButtonItem *actionButton;
-@property (nonatomic,retain) UIBarButtonItem *refreshButton;
+@property (nonatomic,strong) AppDelegate *mainAppDelegate;
+@property (nonatomic,strong) UIWebView *webView;
+@property (nonatomic,strong) NSURL *webViewURL;
+@property (nonatomic,strong) UIBarButtonItem *actionButton;
+@property (nonatomic,strong) UIBarButtonItem *refreshButton;
 
 - (IBAction)actionButtonSelected:(id)sender;
 

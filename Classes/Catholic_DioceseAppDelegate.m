@@ -239,9 +239,8 @@
 	// Sort the parishes in alphabetical order...
 	NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"parishName" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	[parishData sortUsingDescriptors:[NSMutableArray arrayWithObjects:alphaDesc, nil]];	
-	[alphaDesc release], alphaDesc = nil;
+	alphaDesc = nil;
 	
-	[fetchRequest release];
 }
 
 - (void)updateParishEventTimeData {
@@ -257,49 +256,49 @@
 	 *
 	 * CSV columns: Z_ENT, Z_OPT, parishNumber, eventTypeKey, eventDay, eventStart, eventEnd, eventLanguage, eventLocation
 	 */
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	// Retrieve the parish data from our CSV file on the server.
 	// @config - URL to csv file containing parish event time data.
-	NSString *csv = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.example.com/sacrament-times.csv"] encoding:NSASCIIStringEncoding error:nil];
-	
-	// Check if the CSV file has data.
-	if ([csv length] != 0) {
-		// If there is data in the downloaded CSV file, first delete all parish events.
-		NSManagedObjectContext *context = [self managedObjectContext];
-		NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-		[fetchRequest setEntity:[NSEntityDescription entityForName:@"ParishEvents" inManagedObjectContext:context]];
-		NSArray *result = [context executeFetchRequest:fetchRequest error:nil];
-		for (id parishEventToDelete in result) {
-			[context deleteObject:parishEventToDelete];
-		}
+		NSString *csv = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.example.com/sacrament-times.csv"] encoding:NSASCIIStringEncoding error:nil];
 		
-		// Save all the deleted stuff...
-		[self saveAction];
-		
-		// Then, repopulate the parish event core data database from the CSV file.
-		NSMutableArray *rows = [NSMutableArray arrayWithContentsOfCSVString:csv encoding:NSUTF8StringEncoding error:nil];
-		[rows removeObjectAtIndex:0]; // Remove header row.
-		[rows removeLastObject]; // Remove footer row.
-		ParishEvents *parishEvent;
-		for (NSArray *eventRow in rows) {
-			parishEvent = (ParishEvents *)[NSEntityDescription insertNewObjectForEntityForName:@"ParishEvents" inManagedObjectContext:context];
-			[parishEvent setValue:[NSNumber numberWithInt:[[eventRow objectAtIndex:2] intValue]] forKey:@"parishNumber"];
-			[parishEvent setValue:[NSNumber numberWithInt:[[eventRow objectAtIndex:3] intValue]] forKey:@"eventTypeKey"];
-			[parishEvent setValue:[eventRow objectAtIndex:4] forKey:@"eventDay"];
-			[parishEvent setValue:[eventRow objectAtIndex:5] forKey:@"eventStart"];
-			[parishEvent setValue:[eventRow objectAtIndex:6] forKey:@"eventEnd"];
-			[parishEvent setValue:[eventRow objectAtIndex:7] forKey:@"eventLanguage"];
-			[parishEvent setValue:[eventRow objectAtIndex:8] forKey:@"eventLocation"];
+		// Check if the CSV file has data.
+		if ([csv length] != 0) {
+			// If there is data in the downloaded CSV file, first delete all parish events.
+			NSManagedObjectContext *context = [self managedObjectContext];
+			NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+			[fetchRequest setEntity:[NSEntityDescription entityForName:@"ParishEvents" inManagedObjectContext:context]];
+			NSArray *result = [context executeFetchRequest:fetchRequest error:nil];
+			for (id parishEventToDelete in result) {
+				[context deleteObject:parishEventToDelete];
+			}
+			
+			// Save all the deleted stuff...
 			[self saveAction];
+			
+			// Then, repopulate the parish event core data database from the CSV file.
+			NSMutableArray *rows = [NSMutableArray arrayWithContentsOfCSVString:csv encoding:NSUTF8StringEncoding error:nil];
+			[rows removeObjectAtIndex:0]; // Remove header row.
+			[rows removeLastObject]; // Remove footer row.
+			ParishEvents *parishEvent;
+			for (NSArray *eventRow in rows) {
+				parishEvent = (ParishEvents *)[NSEntityDescription insertNewObjectForEntityForName:@"ParishEvents" inManagedObjectContext:context];
+				[parishEvent setValue:[NSNumber numberWithInt:[[eventRow objectAtIndex:2] intValue]] forKey:@"parishNumber"];
+				[parishEvent setValue:[NSNumber numberWithInt:[[eventRow objectAtIndex:3] intValue]] forKey:@"eventTypeKey"];
+				[parishEvent setValue:[eventRow objectAtIndex:4] forKey:@"eventDay"];
+				[parishEvent setValue:[eventRow objectAtIndex:5] forKey:@"eventStart"];
+				[parishEvent setValue:[eventRow objectAtIndex:6] forKey:@"eventEnd"];
+				[parishEvent setValue:[eventRow objectAtIndex:7] forKey:@"eventLanguage"];
+				[parishEvent setValue:[eventRow objectAtIndex:8] forKey:@"eventLocation"];
+				[self saveAction];
+			}
 		}
+		
+		// Update the parishDataLastRefreshed timestamp (do this only after all the data has been updated).
+		NSDate *timeNow = [NSDate date];
+		[[NSUserDefaults standardUserDefaults] setObject:timeNow forKey:@"parishDataLastRefreshed"];
+	
 	}
-	
-	// Update the parishDataLastRefreshed timestamp (do this only after all the data has been updated).
-	NSDate *timeNow = [NSDate date];
-	[[NSUserDefaults standardUserDefaults] setObject:timeNow forKey:@"parishDataLastRefreshed"];
-	
-	[pool drain];
 }
 
 
@@ -312,18 +311,5 @@
 }
 
 
-- (void)dealloc {
-
-    [managedObjectContext release];
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
-	
-	[parishData release];
-	
-	[parishNavController release];
-    [tabBarController release];
-    [window release];
-    [super dealloc];
-}
 
 @end

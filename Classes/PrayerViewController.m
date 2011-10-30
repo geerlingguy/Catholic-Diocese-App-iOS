@@ -43,21 +43,21 @@ static UIFont *titleFont;
 
 // Secondary thread to load in the prayers in the background on view load.
 - (void)refreshThePrayers {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	// Start the network activity spinner in the top status bar.
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		
+		// Set up URL and parser
+		// @config - URL of prayer data XML (feed).
+		NSData *prayerXML = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-prayers-example.xml"]];
+		prayerParser = [[NSXMLParser alloc] initWithData:prayerXML];
+		prayerParser.delegate = self;
+		[prayerParser parse];
+		[tblLatestPrayers reloadData]; // Need to refresh the table after we fill up the array again.
+		[prayerParser setDelegate:nil]; // Resolves a 1024-byte memory leak
 	
-	// Set up URL and parser
-	// @config - URL of prayer data XML (feed).
-	NSData *prayerXML = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-prayers-example.xml"]];
-	prayerParser = [[NSXMLParser alloc] initWithData:prayerXML];
-	prayerParser.delegate = self;
-	[prayerParser parse];
-	[tblLatestPrayers reloadData]; // Need to refresh the table after we fill up the array again.
-	[prayerParser setDelegate:nil]; // Resolves a 1024-byte memory leak
-	
-	[pool drain];
+	}
 }
 
 #pragma mark Table View Cell calculations
@@ -76,8 +76,8 @@ static UIFont *titleFont;
 }
 
 - (UITableViewCell*)CreateMultilinesCell:(NSString*)cellIdentifier {
-	UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-													reuseIdentifier:cellIdentifier] autorelease];
+	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
+													reuseIdentifier:cellIdentifier];
 	
 	cell.textLabel.numberOfLines = 0;
 	cell.textLabel.font = [self TitleFont];
@@ -184,7 +184,6 @@ static UIFont *titleFont;
 											cancelButtonTitle:@"OK"
 											otherButtonTitles:nil];
 	[myAlert show];
-	[myAlert release];
 }
 
 - (void)parser:(NSXMLParser *)prayerParser parseErrorOccurred:(NSError *)err {
@@ -196,7 +195,6 @@ static UIFont *titleFont;
 											cancelButtonTitle:@"OK"
 											otherButtonTitles:nil];
 	[myAlert show];
-	[myAlert release];
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)prayerParser {
@@ -254,9 +252,6 @@ didStartElement:(NSString *)elementName
 		
 		[prayers addObject:record];
 		
-		[currentName release];
-		[prayerDate release];
-		[prayerSummary release];
 		
 		prayerItemActive = NO;
 	}
@@ -304,12 +299,6 @@ didStartElement:(NSString *)elementName
 }
 
 
-- (void)dealloc {
-	[prayers release];
-	[prayerParser release];
-	
-    [super dealloc];
-}
 
 
 @end

@@ -50,7 +50,7 @@
 	NSError * error;
 }
 
-@property (assign) __weak id<CHCSVParserDelegate> parserDelegate;
+@property (nonatomic, weak) id<CHCSVParserDelegate> parserDelegate;
 @property (readonly) NSError * error;
 @property (readonly) NSString * csvFile;
 

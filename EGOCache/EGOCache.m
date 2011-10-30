@@ -119,7 +119,7 @@ static EGOCache* __instance;
 }
 
 - (void)removeItemFromCache:(NSString*)key {
-	NSString* cachePath = cachePathForKey(key);
+	__unsafe_unretained NSString* cachePath = cachePathForKey(key);
 	
 	NSInvocation* deleteInvocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(deleteDataAtPath:)]];
 	[deleteInvocation setTarget:self];
@@ -160,11 +160,12 @@ static EGOCache* __instance;
 - (void)setData:(NSData*)data forKey:(NSString*)key withTimeoutInterval:(NSTimeInterval)timeoutInterval {
 	CHECK_FOR_EGOCACHE_PLIST();
 	
-	NSString* cachePath = cachePathForKey(key);
+  __unsafe_unretained NSString* cachePath = cachePathForKey(key);
+  __unsafe_unretained NSData  * cacheData = data;
 	NSInvocation* writeInvocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(writeData:toPath:)]];
 	[writeInvocation setTarget:self];
 	[writeInvocation setSelector:@selector(writeData:toPath:)];
-	[writeInvocation setArgument:&data atIndex:2];
+	[writeInvocation setArgument:&cacheData atIndex:2];
 	[writeInvocation setArgument:&cachePath atIndex:3];
 	
 	[self performDiskWriteOperation:writeInvocation];
@@ -204,7 +205,7 @@ static EGOCache* __instance;
 #pragma mark String methods
 
 - (NSString*)stringForKey:(NSString*)key {
-	return [[[NSString alloc] initWithData:[self dataForKey:key] encoding:NSUTF8StringEncoding] autorelease];
+	return [[NSString alloc] initWithData:[self dataForKey:key] encoding:NSUTF8StringEncoding];
 }
 
 - (void)setString:(NSString*)aString forKey:(NSString*)key {
@@ -281,15 +282,9 @@ static EGOCache* __instance;
 - (void)performDiskWriteOperation:(NSInvocation *)invoction {
 	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithInvocation:invoction];
 	[diskOperationQueue addOperation:operation];
-	[operation release];
 }
 
 #pragma mark -
 
-- (void)dealloc {
-	[diskOperationQueue release];
-	[cacheDictionary release];
-	[super dealloc];
-}
 
 @end

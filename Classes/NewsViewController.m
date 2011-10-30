@@ -33,21 +33,21 @@
 
 // Method loads or refreshes the news articles.
 -(void)refreshTheNews {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	// Start the network activity spinner in the top status bar (see parserDidStartDocument for start).
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		
+		// Set up URL and parser
+		// @config - Path to XML feed of the latest news.
+		NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-news-example.xml"]];
+		parser = [[NSXMLParser alloc] initWithData:xml];
+		parser.delegate = self;
+		[parser parse];
+		[tblLatestNews reloadData]; // Need to refresh the table after we fill up the array again.
+		[parser setDelegate:nil]; // Resolves a 1024-byte memory leak
 	
-	// Set up URL and parser
-	// @config - Path to XML feed of the latest news.
-	NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-news-example.xml"]];
-	parser = [[NSXMLParser alloc] initWithData:xml];
-	parser.delegate = self;
-	[parser parse];
-	[tblLatestNews reloadData]; // Need to refresh the table after we fill up the array again.
-	[parser setDelegate:nil]; // Resolves a 1024-byte memory leak
-	
-	[pool drain];
+	}
 }
 
 
@@ -71,7 +71,7 @@
 	// We also experimented with UITableViewCellStyleValue2, with the date on the left... but decided against it.
 	JJGNewsCell *cell = (JJGNewsCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[JJGNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[JJGNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // Add disclosure chevron
 	}
 	
@@ -116,7 +116,6 @@
 	webViewController.webViewURL = [NSURL URLWithString:storyLink];
 	
 	[self.navigationController pushViewController:webViewController animated:YES];
-	[webViewController release];
 }
 
 // Set cell height
@@ -150,7 +149,6 @@
 											cancelButtonTitle:@"OK"
 											otherButtonTitles:nil];
 	[myAlert show];
-	[myAlert release];
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)err {
@@ -162,7 +160,6 @@
 											cancelButtonTitle:@"OK"
 											otherButtonTitles:nil];
 	[myAlert show];
-	[myAlert release];
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
@@ -233,11 +230,6 @@ didStartElement:(NSString *)elementName
 		
 		[articles addObject:record];
 		
-		[currentTitle release];
-		[currentLink release];
-		[pubDate release];
-		[currentSummary release];
-		[currentImage release];
 		
 		itemActive = NO;
 	}
@@ -279,10 +271,5 @@ didStartElement:(NSString *)elementName
 }
 
 
-- (void)dealloc {
-	[articles release];
-	[parser release];
-    [super dealloc];
-}
 
 @end

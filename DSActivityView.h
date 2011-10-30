@@ -36,13 +36,13 @@
 }
 
 // The view to contain the activity indicator and label.  The bezel style has a semi-transparent rounded rectangle, others are fully transparent:
-@property (nonatomic, readonly) UIView *borderView;
+@property (weak, nonatomic, readonly) UIView *borderView;
 
 // The activity indicator view; automatically created on first access:
-@property (nonatomic, readonly) UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic, readonly) UIActivityIndicatorView *activityIndicator;
 
 // The activity label; automatically created on first access:
-@property (nonatomic, readonly) UILabel *activityLabel;
+@property (weak, nonatomic, readonly) UILabel *activityLabel;
 
 // A fixed width for the label text, or zero to automatically calculate the text size (normally set on creation of the view object):
 @property (nonatomic) NSUInteger labelWidth;
@@ -77,7 +77,7 @@
 
 @interface DSActivityView ()
 
-@property (nonatomic, retain) UIView *originalView;
+@property (nonatomic, strong) UIView *originalView;
 
 - (UIView *)viewForView:(UIView *)view;
 - (CGRect)enclosingFrame;

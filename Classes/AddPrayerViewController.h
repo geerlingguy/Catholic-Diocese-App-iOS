@@ -14,6 +14,6 @@
 	
 }
 
-@property (nonatomic,retain) UIWebView *addPrayerWebView;
+@property (nonatomic,strong) UIWebView *addPrayerWebView;
 
 @end

@@ -105,7 +105,6 @@
 	// NSLog(@"Parish reconciliation times array: %@", parishReconciliationTimes);
 	// NSLog(@"Parish adoration times array: %@", parishAdorationTimes);
 	
-	[fetchRequest release];
 }
 
 
@@ -153,7 +152,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 
     // Set the text in the cell for the section/row.
@@ -319,16 +318,16 @@
 		// Push user back to the parish map view (we'll do everything else during animation).
 		[self.navigationController popToRootViewControllerAnimated:YES];
 		
-		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+		@autoreleasepool {
 		
 		// Put current parish's latitude and longitude values into array
-		NSArray *coordinatesToPush = [[NSArray alloc] initWithObjects:parishTitle, pLatitude, pLongitude, @"dontDropPin", @"openAnnotation", nil];
+			NSArray *coordinatesToPush = [[NSArray alloc] initWithObjects:parishTitle, pLatitude, pLongitude, @"dontDropPin", @"openAnnotation", nil];
+			
+			// Pass the new center coordinates over to the parish map view through NSNotificationCenter.
+			NSNotificationCenter *note = [NSNotificationCenter defaultCenter];
+			[note postNotificationName:@"ParishMapUpdateEvent" object:coordinatesToPush];
 		
-		// Pass the new center coordinates over to the parish map view through NSNotificationCenter.
-		NSNotificationCenter *note = [NSNotificationCenter defaultCenter];
-		[note postNotificationName:@"ParishMapUpdateEvent" object:coordinatesToPush];
-		
-		[pool drain];
+		}
 	}
 	
 	// Open parish page on archstl.org if user taps 'More Information' button (currently at index path/section 2).
@@ -339,7 +338,6 @@
 		parishWebViewController.title = parishTitle;		
 		parishWebViewController.webViewURL = [NSURL URLWithString:pURL];
 		[self.navigationController pushViewController:parishWebViewController animated:YES];
-		[parishWebViewController release];
 	}
 }
 
@@ -350,7 +348,7 @@
 	// If you return nil for a section, the titleForHeaderInSection value will be used instead
 	switch (section) {
         case 0: {
-			UILabel* parishNameHeader = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 280, 40)] autorelease];
+			UILabel* parishNameHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 280, 40)];
 			parishNameHeader.text = parishTitle; // Passed from map view
 			parishNameHeader.textAlignment = UITextAlignmentCenter;
 			if ([parishTitle length] < 30) {
@@ -438,8 +436,8 @@
 	
 	userLatitude = [NSNumber numberWithDouble:location.coordinate.latitude];
 	userLongitude = [NSNumber numberWithDouble:location.coordinate.longitude];
-	[userLatitude retain]; // Retain for later, if user taps on address.
-	[userLongitude retain]; // Retain for later, if user taps on address.
+	 // Retain for later, if user taps on address.
+	 // Retain for later, if user taps on address.
 	
 	// After user location found, stop the location manager
 	// Note: We don't need any specific accuracy here, because CLLocationManager already has a pretty good
@@ -468,23 +466,6 @@
 }
 
 
-- (void)dealloc {
-	[title release];
-	[parishTitle release];
-	[number release];
-	[locationController release];
-	[userLatitude release];
-	[userLongitude release];
-	[pAddress release];
-	[pCity release];
-	[pState release];
-	[pZip release];
-	[pURL release];
-	[pLatitude release];
-	[pLongitude release];
-	
-    [super dealloc];
-}
 
 
 @end

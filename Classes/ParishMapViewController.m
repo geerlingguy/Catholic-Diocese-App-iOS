@@ -26,15 +26,6 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    [title release];
-    [subtitle release];
-	[parishTitle release];
-	[number release];
-    
-    [super dealloc];
-}
 
 @end
 
@@ -120,7 +111,6 @@
 		userAddedAnnotation.number = nil;
 		[parishMap addAnnotation:userAddedAnnotation]; // Just add one at a time.
 		[parishMap selectAnnotation:userAddedAnnotation animated:YES]; // Select the annotation.
-		[userAddedAnnotation release];
 	}
 	
 	// Open the annotation view for the given location (if the last item in the array says "openAnnotation").
@@ -146,29 +136,28 @@
 	annotation.parishTitle = title;
 	annotation.number = number;
     [parishMap addAnnotation:annotation]; // Just add one at a time.
-    [annotation release];
 }
 
 // Function to create an annotation for each parish.
 - (void)createAnnotationsOfParishes {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	// Set up variables for adding map annotations (later)
-	CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(0,0);
-	NSString *pName = @"Parish Name";
-	NSString *pSubtitle = @"Parish Description";
-	NSNumber *pNumber = 0;
-	
-	for (NSMutableDictionary *currentParishDictionary in mainAppDelegate.parishData) {
-		coords = CLLocationCoordinate2DMake((CLLocationDegrees)[[currentParishDictionary objectForKey: @"parishLatitude"] doubleValue],(CLLocationDegrees)[[currentParishDictionary objectForKey: @"parishLongitude"] doubleValue]);
-		pName = [currentParishDictionary objectForKey: @"parishName"];
-		pSubtitle = [currentParishDictionary objectForKey: @"parishStreetAddress"];
-		pNumber = [currentParishDictionary objectForKey:@"parishNumber"]; // Used as a reference point for other parish data.
+		CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(0,0);
+		NSString *pName = @"Parish Name";
+		NSString *pSubtitle = @"Parish Description";
+		NSNumber *pNumber = 0;
 		
-		[self createAnnotationWithCoords:coords andTitle:pName andSubtitle:pSubtitle andNumber:pNumber];
-	}
+		for (NSMutableDictionary *currentParishDictionary in mainAppDelegate.parishData) {
+			coords = CLLocationCoordinate2DMake((CLLocationDegrees)[[currentParishDictionary objectForKey: @"parishLatitude"] doubleValue],(CLLocationDegrees)[[currentParishDictionary objectForKey: @"parishLongitude"] doubleValue]);
+			pName = [currentParishDictionary objectForKey: @"parishName"];
+			pSubtitle = [currentParishDictionary objectForKey: @"parishStreetAddress"];
+			pNumber = [currentParishDictionary objectForKey:@"parishNumber"]; // Used as a reference point for other parish data.
+			
+			[self createAnnotationWithCoords:coords andTitle:pName andSubtitle:pSubtitle andNumber:pNumber];
+		}
 
-	[pool drain];
+	}
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -181,7 +170,7 @@
 	
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)[parishMap dequeueReusableAnnotationViewWithIdentifier:identifier];
     if (pinView == nil)
-		pinView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotation.title] autorelease];
+		pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotation.title];
     else
 		pinView.annotation = annotation;
 	
@@ -264,7 +253,8 @@
 			[parishMap setRegion:region animated:YES];
 		}
 
-		zoomToUserLocation = NO;
+    //changed from NO to 0 b/c of an ARC compatibility issue
+		zoomToUserLocation = 0; 
 	}
 }
 
@@ -299,10 +289,10 @@
 		[parishMap setRegion:region animated:TRUE];
 		[parishMap regionThatFits:region];
 	} else { // If there's no user location, just show an alert.
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"No Location Found"
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Location Found"
 														 message:@"We can't find your location on the map. Please try to connect to the Internet or find better GPS coverage, and try again."
 														delegate:self cancelButtonTitle:@"OK"
-											   otherButtonTitles:nil] autorelease];
+											   otherButtonTitles:nil];
 		[alert show];
 	}
 }
@@ -338,11 +328,6 @@
 }
 
 
-- (void)dealloc {
-	[parishMap release];
-
-    [super dealloc];
-}
 
 
 @end

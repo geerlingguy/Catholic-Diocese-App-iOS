@@ -64,7 +64,7 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // Add disclosure chevron
 	}
 	
@@ -103,7 +103,7 @@
 	{
 		NSMutableArray *array = [[NSMutableArray alloc] init];
 		[self setSearchResults:array];
-		[array release], array = nil;
+		array = nil;
 	}
 	
 	[[self searchResults] removeAllObjects];
@@ -148,48 +148,47 @@
 	// Start network activity spinner.
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	// Format entered address in string to pass to Google Maps API, and get back coordinates.
 	// @config - Google Maps API for getting address coordinates.
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv", 
-						   [address	stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv", 
+							   [address	stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSASCIIStringEncoding error:nil];
-	
-	// Stop network activity spinner.
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	
-	// Format returned string (CSV) into lat/long measurements.
-	NSArray *listItems = [locationString componentsSeparatedByString:@","];
-	
-	if([listItems count] >= 4 && [[listItems objectAtIndex:0] isEqualToString:@"200"]) {
 		
-		latitude = [listItems objectAtIndex:2];
-		longitude = [listItems objectAtIndex:3];
+		// Stop network activity spinner.
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 		
-		// Put latitude and longitude values into array
-		NSArray *coordinatesToPush = [[NSArray alloc] initWithObjects:@"noParishHere", latitude, longitude, @"dropPin", @"dontOpenAnnotation", nil];
+		// Format returned string (CSV) into lat/long measurements.
+		NSArray *listItems = [locationString componentsSeparatedByString:@","];
 		
-		// Pass the new center coordinates over to the parish map view through NSNotificationCenter.
-		NSNotificationCenter *note = [NSNotificationCenter defaultCenter];
-		[note postNotificationName:@"ParishMapUpdateEvent" object:coordinatesToPush];
-		
-	} else {
-		
-		//Show error
-		UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Couldn't Find Location"
-														  message:@"Either this device is not connected to the Internet, or the location entered needs to be more precise."
-														 delegate:nil 
-												cancelButtonTitle:@"OK"
-												otherButtonTitles:nil];
-		[myAlert show];
-		[myAlert release];
-		
+		if([listItems count] >= 4 && [[listItems objectAtIndex:0] isEqualToString:@"200"]) {
+			
+			latitude = [listItems objectAtIndex:2];
+			longitude = [listItems objectAtIndex:3];
+			
+			// Put latitude and longitude values into array
+			NSArray *coordinatesToPush = [[NSArray alloc] initWithObjects:@"noParishHere", latitude, longitude, @"dropPin", @"dontOpenAnnotation", nil];
+			
+			// Pass the new center coordinates over to the parish map view through NSNotificationCenter.
+			NSNotificationCenter *note = [NSNotificationCenter defaultCenter];
+			[note postNotificationName:@"ParishMapUpdateEvent" object:coordinatesToPush];
+			
+		} else {
+			
+			//Show error
+			UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Couldn't Find Location"
+															  message:@"Either this device is not connected to the Internet, or the location entered needs to be more precise."
+															 delegate:nil 
+													cancelButtonTitle:@"OK"
+													otherButtonTitles:nil];
+			[myAlert show];
+			
     }
+		
+		 // Fix a crash, due to NSAutoReleasePool
 	
-	[listItems retain]; // Fix a crash, due to NSAutoReleasePool
-	
-	[pool drain];
+	}
 }
 
 
@@ -209,13 +208,6 @@
 }
 
 
-- (void)dealloc {
-	[mainAppDelegate release];
-	[parishListTableView release];
-	[searchResults release];
-
-    [super dealloc];
-}
 
 
 @end

@@ -40,9 +40,9 @@
 
 - (void)cancelImageLoad;
 
-@property(nonatomic,retain) NSURL* imageURL;
-@property(nonatomic,retain) UIImage* placeholderImage;
-@property(nonatomic,retain) id<EGOImageViewDelegate> delegate;
+@property(nonatomic,strong) NSURL* imageURL;
+@property(nonatomic,strong) UIImage* placeholderImage;
+@property(nonatomic,strong) id<EGOImageViewDelegate> delegate;
 @end
 
 @protocol EGOImageViewDelegate<NSObject>

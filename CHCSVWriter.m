@@ -33,12 +33,12 @@
 	if (self = [super init]) {
 		atomically = atomicWrite;
 		
-		destinationFile = [outputFile retain];
+		destinationFile = outputFile;
 		
 		if (atomically) {
-			handleFile = [[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d-%@", arc4random(), [destinationFile lastPathComponent]]] retain];
+			handleFile = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d-%@", arc4random(), [destinationFile lastPathComponent]]];
 		} else {
-			handleFile = [destinationFile retain];
+			handleFile = destinationFile;
 		}
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:handleFile]) {
@@ -46,24 +46,19 @@
 		}
 		
 		[[NSFileManager defaultManager] createFileAtPath:handleFile contents:nil attributes:nil];
-		outputHandle = [[NSFileHandle fileHandleForWritingAtPath:handleFile] retain];
+		outputHandle = [NSFileHandle fileHandleForWritingAtPath:handleFile];
 		
 		encoding = 0;
 		
 		NSMutableCharacterSet * bad = [NSMutableCharacterSet newlineCharacterSet];
 		[bad addCharactersInString:@",\"\\"];
-		illegalCharacters = [bad retain];
+		illegalCharacters = bad;
 	}
 	return self;
 }
 
 - (void) dealloc {
 	[self closeFile];
-	[destinationFile release];
-	[handleFile release];
-	[outputHandle release];
-	[illegalCharacters release];
-	[super dealloc];
 }
 
 - (NSError *) error {
@@ -88,7 +83,6 @@
 	}
 	
 	[outputHandle writeData:[write dataUsingEncoding:encoding]];
-	[write release];
 	currentField++;
 }
 
@@ -103,20 +97,20 @@
 - (void) closeFile {
 	if (outputHandle) {
 		[outputHandle closeFile];
-		[outputHandle release], outputHandle = nil;
+		outputHandle = nil;
 		
 		if (atomically == YES && [handleFile isEqual:destinationFile] == NO) {
 			NSError *err = nil;
 			if ([[NSFileManager defaultManager] fileExistsAtPath:destinationFile]) {
 				[[NSFileManager defaultManager] removeItemAtPath:destinationFile error:&err];
 				if (err != nil) {
-					error = [err retain];
+					error = err;
 					return;
 				}
 			}
 			[[NSFileManager defaultManager] moveItemAtPath:handleFile toPath:destinationFile error:&err];
 			if (err != nil) {
-				error = [err retain];
+				error = err;
 			}
 			[[NSFileManager defaultManager] removeItemAtPath:handleFile error:nil];
 		}

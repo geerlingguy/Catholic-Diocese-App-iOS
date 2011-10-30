@@ -29,12 +29,6 @@
 @implementation NSArrayCHCSVAggregator
 @synthesize lines, error;
 
-- (void) dealloc {
-	[lines release];
-	[currentLine release];
-	[error release];
-	[super dealloc];
-}
 
 - (void) parser:(CHCSVParser *)parser didStartDocument:(NSString *)csvFile {
 	lines = [[NSMutableArray alloc] init];
@@ -48,7 +42,7 @@
 	if ([currentLine count] > 0) {
 		[lines addObject:currentLine];
 	}
-	[currentLine release], currentLine = nil;
+	currentLine = nil;
 }
 
 - (void) parser:(CHCSVParser *)parser didReadField:(NSString *)field {
@@ -60,7 +54,7 @@
 }
 
 - (void) parser:(CHCSVParser *)parser didFailWithError:(NSError *)anError {
-	error = [anError retain];
+	error = anError;
 }
 
 @end

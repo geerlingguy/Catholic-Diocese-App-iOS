@@ -19,11 +19,11 @@
 	NSString *longitude;
 }
 
-@property (nonatomic, retain) AppDelegate *mainAppDelegate;
-@property (nonatomic, retain) IBOutlet UITableView *parishListTableView;
-@property (nonatomic, retain) NSMutableArray *searchResults;
-@property (nonatomic, retain) NSString *latitude;
-@property (nonatomic, retain) NSString *longitude;
+@property (nonatomic, strong) AppDelegate *mainAppDelegate;
+@property (nonatomic, strong) IBOutlet UITableView *parishListTableView;
+@property (nonatomic, strong) NSMutableArray *searchResults;
+@property (nonatomic, strong) NSString *latitude;
+@property (nonatomic, strong) NSString *longitude;
 
 - (void)getCoordinatesForGivenAddress:(NSString *)address;
 - (void)handleSearchForTerm:(NSString *)searchTerm;

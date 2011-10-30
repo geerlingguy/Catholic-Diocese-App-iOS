@@ -20,12 +20,12 @@
 @interface JJGCLController : NSObject <CLLocationManagerDelegate> {
 
 	CLLocationManager *locationManager;
-	id delegate;
+	id __unsafe_unretained delegate;
 	
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, assign) id delegate;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, unsafe_unretained) id delegate;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation

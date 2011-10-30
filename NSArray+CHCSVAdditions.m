@@ -31,7 +31,7 @@
 @implementation NSArray (CHCSVAdditions)
 
 + (id) arrayWithContentsOfCSVFile:(NSString *)csvFile encoding:(NSStringEncoding)encoding error:(NSError **)error {
-	return [[[self alloc] initWithContentsOfCSVFile:csvFile encoding:encoding error:error] autorelease];
+	return [[self alloc] initWithContentsOfCSVFile:csvFile encoding:encoding error:error];
 }
 
 - (id) initWithContentsOfCSVFile:(NSString *)csvFile encoding:(NSStringEncoding)encoding error:(NSError **)error {
@@ -43,7 +43,7 @@
 }
 
 + (id) arrayWithContentsOfCSVFile:(NSString *)csvFile usedEncoding:(NSStringEncoding *)usedEncoding error:(NSError **)error {
-	return [[[self alloc] initWithContentsOfCSVFile:csvFile usedEncoding:usedEncoding error:error] autorelease];
+	return [[self alloc] initWithContentsOfCSVFile:csvFile usedEncoding:usedEncoding error:error];
 }
 
 - (id) initWithContentsOfCSVFile:(NSString *)csvFile usedEncoding:(NSStringEncoding *)usedEncoding error:(NSError **)error {
@@ -60,13 +60,12 @@
 }
 
 + (id) arrayWithContentsOfCSVString:(NSString *)csvString encoding:(NSStringEncoding)encoding error:(NSError **)error {
-	return [[[self alloc] initWithContentsOfCSVString:csvString encoding:encoding error:error] autorelease];
+	return [[self alloc] initWithContentsOfCSVString:csvString encoding:encoding error:error];
 }
 
 - (id) initWithContentsOfCSVString:(NSString *)csvString encoding:(NSStringEncoding)encoding error:(NSError **)error {
 	CHCSVParser * parser = [[CHCSVParser alloc] initWithCSVString:csvString encoding:encoding error:error];
 	if (error && *error) {
-		[parser release];
 		return [self init];
 	}
 	NSArrayCHCSVAggregator * delegate = [[NSArrayCHCSVAggregator alloc] init];
@@ -74,11 +73,9 @@
 	
 	[parser parse];
 	
-	NSArray * lines = [[[delegate lines] retain] autorelease];
-	NSError * parserError = [[[delegate error] retain] autorelease];
+	NSArray * lines = [delegate lines];
+	NSError * parserError = [delegate error];
 	
-	[delegate release];
-	[parser release];
 	
 	if (parserError) {
 		if (error) {
@@ -107,7 +104,6 @@
 	
 	ok = ([writer error] == nil);
 	[writer closeFile];
-	[writer release];
 	
 	return ok;
 }

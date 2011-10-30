@@ -47,7 +47,7 @@
 - (void)removeObserver:(id<EGOImageLoaderObserver>)observer;
 - (void)removeObserver:(id<EGOImageLoaderObserver>)observer forURL:(NSURL*)aURL;
 
-@property(nonatomic,retain) NSDictionary* currentConnections;
+@property(nonatomic,strong) NSDictionary* currentConnections;
 @end
 
 @protocol EGOImageLoaderObserver<NSObject>

@@ -20,10 +20,10 @@
 
 }
 
-@property (nonatomic, retain) AppDelegate *mainAppDelegate;
-@property (nonatomic, retain) NSNumber *zoomToUserLocation;
-@property (nonatomic, retain) IBOutlet MKMapView *parishMap;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *segmentedControlMapType;
+@property (nonatomic, strong) AppDelegate *mainAppDelegate;
+@property (nonatomic, strong) NSNumber *zoomToUserLocation;
+@property (nonatomic, strong) IBOutlet MKMapView *parishMap;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControlMapType;
 
 - (void)updateParishMapCenter:(NSNotification *)note;
 - (IBAction)btnSearch:(id)sender;
@@ -43,10 +43,10 @@
 }
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *subtitle;
-@property (nonatomic, retain) NSString *parishTitle;
-@property (nonatomic, retain) NSNumber *number;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *subtitle;
+@property (nonatomic, strong) NSString *parishTitle;
+@property (nonatomic, strong) NSNumber *number;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coords;
 

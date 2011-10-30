@@ -53,7 +53,6 @@
 								   cancelButtonTitle:@"OK"
 								   otherButtonTitles:nil];
         [errorAlert show];
-        [errorAlert release];
     }
 }
 
@@ -73,10 +72,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-	[addPrayerWebView release];
-}
 
 
 @end

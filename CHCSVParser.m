@@ -65,7 +65,7 @@ enum {
 
 @interface CHCSVParser ()
 
-@property (retain) NSMutableData * currentChunk;
+@property (strong) NSMutableData * currentChunk;
 
 - (NSStringEncoding) textEncodingForData:(NSData *)chunkToSniff offset:(NSUInteger *)offset;
 
@@ -89,12 +89,11 @@ enum {
     self = [super init];
 	if (self) {
 		csvFile = [aCSVFile copy];
-		csvFileHandle = [[NSFileHandle fileHandleForReadingAtPath:csvFile] retain];
+		csvFileHandle = [NSFileHandle fileHandleForReadingAtPath:csvFile];
 		if (csvFileHandle == nil) {
 			if (anError) {
 				*anError = [NSError errorWithDomain:@"com.davedelong.csv" code:0 userInfo:[NSDictionary dictionaryWithObject:@"Unable to open file for reading" forKey:NSLocalizedDescriptionKey]];
 			}
-			[self release];
 			return nil;
 		}
 		fileEncoding = encoding;
@@ -153,16 +152,6 @@ enum {
 	return self;
 }
 
-- (void) dealloc {
-	[csvFileHandle release];
-	[csvFile release];
-	[currentField release];
-	[currentChunk release];
-	[currentChunkString release];
-	[error release];
-	
-	[super dealloc];
-}
 
 - (NSStringEncoding) textEncodingForData:(NSData *)chunkToSniff offset:(NSUInteger *)offset {
 	NSUInteger length = [chunkToSniff length];
@@ -203,7 +192,7 @@ enum {
 				}
 				break;
 			default:
-				if ([[[NSString alloc] initWithData:chunkToSniff encoding:NSUTF8StringEncoding] autorelease] == nil) {
+				if ([[NSString alloc] initWithData:chunkToSniff encoding:NSUTF8StringEncoding] == nil) {
 					NSLog(@"unable to determine file encoding; assuming MacOSRoman");
 					encoding = NSMacOSRomanStringEncoding;
 				} else {
@@ -249,7 +238,6 @@ enum {
                 }
             } else {
                 [currentChunkString appendString:readString];
-                [readString release];
                 break;
             }
         } while (1);
@@ -293,7 +281,6 @@ enum {
 	NSString * previousCharacter = nil;
 	NSString * previousPreviousCharacter = nil;
 	
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	unsigned short counter = 0;
 	
 	while (error == nil && 
@@ -307,21 +294,7 @@ enum {
 		previousCharacter = currentCharacter;
 		
 		counter++;
-		if (counter == 0) { //this happens every 65,536 (2**16) iterations when the unsigned short overflows
-			[currentCharacter retain];
-			[previousCharacter retain];
-			[previousPreviousCharacter retain];
-			
-			[pool drain];
-			pool = [[NSAutoreleasePool alloc] init];
-			
-			[currentCharacter autorelease];
-			[previousCharacter autorelease];
-			[previousPreviousCharacter autorelease];
-		}
 	}
-	
-	[pool drain];
 	
 	if ([currentField length] > 0 && state == CHCSVParserStateInsideField) {
 		[self finishCurrentField];
@@ -444,7 +417,6 @@ enum {
 	
 	NSString * field = [currentField copy];
 	[[self parserDelegate] parser:self didReadField:field];
-	[field release];
 	
 	[currentField setString:@""];
 	

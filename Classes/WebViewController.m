@@ -65,7 +65,6 @@
 								   cancelButtonTitle:@"OK"
 								   otherButtonTitles:nil];
         [errorAlert show];
-        [errorAlert release];
     }
 }
 
@@ -81,7 +80,6 @@
 																   NSLocalizedString(@"Email Link...", @""), nil];
 	[actionButtonActionSheet showFromBarButtonItem:sender animated:YES];
 	[actionButtonActionSheet showInView:mainAppDelegate.window];
-	[actionButtonActionSheet release];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -99,8 +97,6 @@
 				NSString *mailtoString = [[NSString alloc] initWithFormat:@"mailto:?subject=Link%%20from%%20Diocese%%20App&body=%@", [currentURL absoluteString]];
 				NSURL *mailtoURL = [[NSURL alloc] initWithString:mailtoString];
 				[[UIApplication sharedApplication] openURL:mailtoURL];
-				[mailtoString release];
-				[mailtoURL release];
 				break;
 			}
 				
@@ -108,7 +104,6 @@
 				break;
 		}
 		
-		[currentURL release];
 	}
 }
 
@@ -129,12 +124,6 @@
 }
 
 
-- (void)dealloc {
-	[webView release];
-	[webViewURL release];
-	[actionButton release];
-    [super dealloc];
-}
 
 
 @end

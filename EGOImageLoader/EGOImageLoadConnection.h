@@ -30,13 +30,13 @@
 
 @interface EGOImageLoadConnection : NSObject {
 @private
-	NSURL* _imageURL;
+	NSURL* __weak _imageURL;
 	NSURLResponse* _response;
 	NSMutableData* _responseData;
 	NSURLConnection* _connection;
 	NSTimeInterval _timeoutInterval;
 	
-	id<EGOImageLoadConnectionDelegate> _delegate;
+	id<EGOImageLoadConnectionDelegate> __unsafe_unretained _delegate;
 }
 
 - (id)initWithImageURL:(NSURL*)aURL delegate:(id)delegate;
@@ -44,11 +44,11 @@
 - (void)start;
 - (void)cancel;
 
-@property(nonatomic,readonly) NSData* responseData;
+@property(weak, nonatomic,readonly) NSData* responseData;
 @property(nonatomic,readonly,getter=imageURL) NSURL* imageURL;
 
-@property(nonatomic,retain) NSURLResponse* response;
-@property(nonatomic,assign) id<EGOImageLoadConnectionDelegate> delegate;
+@property(nonatomic,strong) NSURLResponse* response;
+@property(nonatomic,unsafe_unretained) id<EGOImageLoadConnectionDelegate> delegate;
 
 @property(nonatomic,assign) NSTimeInterval timeoutInterval; // Default is 30 seconds
 

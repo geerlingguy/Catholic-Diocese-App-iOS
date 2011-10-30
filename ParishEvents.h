@@ -12,13 +12,13 @@
 {
 }
 
-@property (nonatomic, retain) NSString * eventEnd;
-@property (nonatomic, retain) NSNumber * parishNumber;
-@property (nonatomic, retain) NSString * eventLanguage;
-@property (nonatomic, retain) NSString * eventDay;
-@property (nonatomic, retain) NSNumber * eventTypeKey;
-@property (nonatomic, retain) NSString * eventLocation;
-@property (nonatomic, retain) NSString * eventStart;
+@property (nonatomic, strong) NSString * eventEnd;
+@property (nonatomic, strong) NSNumber * parishNumber;
+@property (nonatomic, strong) NSString * eventLanguage;
+@property (nonatomic, strong) NSString * eventDay;
+@property (nonatomic, strong) NSNumber * eventTypeKey;
+@property (nonatomic, strong) NSString * eventLocation;
+@property (nonatomic, strong) NSString * eventStart;
 
 @end
 

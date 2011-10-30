@@ -61,11 +61,6 @@
 
 #pragma mark Memory management
 
-- (void)dealloc {
-	[imageView release];
-	[articleTitle release];
-    [super dealloc];
-}
 
 
 @end

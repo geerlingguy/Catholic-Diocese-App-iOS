@@ -34,22 +34,22 @@
 
 }
 
-@property (nonatomic, retain) AppDelegate *mainAppDelegate;
+@property (nonatomic, strong) AppDelegate *mainAppDelegate;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, retain) NSString *parishTitle;
-@property (nonatomic, retain) NSNumber *number;
-@property (nonatomic, retain) NSString *pAddress;
-@property (nonatomic, retain) NSString *pCity;
-@property (nonatomic, retain) NSString *pState;
-@property (nonatomic, retain) NSString *pZip;
-@property (nonatomic, retain) NSString *pURL;
-@property (nonatomic, retain) NSNumber *pLatitude;
-@property (nonatomic, retain) NSNumber *pLongitude;
-@property (nonatomic, retain) NSNumber *userLatitude;
-@property (nonatomic, retain) NSNumber *userLongitude;
-@property (nonatomic, retain) NSMutableArray *parishMassTimes;
-@property (nonatomic, retain) NSMutableArray *parishReconciliationTimes;
-@property (nonatomic, retain) NSMutableArray *parishAdorationTimes;
+@property (nonatomic, strong) NSString *parishTitle;
+@property (nonatomic, strong) NSNumber *number;
+@property (nonatomic, strong) NSString *pAddress;
+@property (nonatomic, strong) NSString *pCity;
+@property (nonatomic, strong) NSString *pState;
+@property (nonatomic, strong) NSString *pZip;
+@property (nonatomic, strong) NSString *pURL;
+@property (nonatomic, strong) NSNumber *pLatitude;
+@property (nonatomic, strong) NSNumber *pLongitude;
+@property (nonatomic, strong) NSNumber *userLatitude;
+@property (nonatomic, strong) NSNumber *userLongitude;
+@property (nonatomic, strong) NSMutableArray *parishMassTimes;
+@property (nonatomic, strong) NSMutableArray *parishReconciliationTimes;
+@property (nonatomic, strong) NSMutableArray *parishAdorationTimes;
 
 - (void)getParishInformationFromNumber;
 - (void)getParishEventTimeInformation;
