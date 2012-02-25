@@ -6,16 +6,15 @@
 //
 
 #import "JJGNewsCell.h"
-#import "EGOImageView.h"
 
 
 @implementation JJGNewsCell
 
-@synthesize articleTitle, articleSummary, articlePostDate, articleImage;
+@synthesize articleTitle, articleSummary, articlePostDate, articleImage, imageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 	if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-		imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"default-news-article-image.png"]];
+		imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"default-news-article-image.png"]];
 		imageView.frame = CGRectMake(12.0f, 12.0f, 50.0f, 50.0f);
 		[self.contentView addSubview:imageView];
 
@@ -40,16 +39,8 @@
 	return self;
 }
 
-- (void)setNewsCellPhoto:(NSString*)imageFromArticle {
-	imageView.imageURL = [NSURL URLWithString:imageFromArticle];
-}
-
 - (void)willMoveToSuperview:(UIView *)newSuperview {
 	[super willMoveToSuperview:newSuperview];
-	
-	if(!newSuperview) {
-		[imageView cancelImageLoad];
-	}
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

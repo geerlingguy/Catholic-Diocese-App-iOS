@@ -26,7 +26,6 @@
 		B06029AD14F899DE00F66CD0 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = B06029A914F899DE00F66CD0 /* Icon-58.png */; };
 		B0720538130A0FD800CCE80D /* JJGNewsCellReference.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0720537130A0FD800CCE80D /* JJGNewsCellReference.xib */; };
 		B0720540130A11AA00CCE80D /* JJGNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B072053F130A11AA00CCE80D /* JJGNewsCell.m */; };
-		B07205A1130A216D00CCE80D /* default-news-article-image.png in Resources */ = {isa = PBXBuildFile; fileRef = B07205A0130A216D00CCE80D /* default-news-article-image.png */; };
 		B095DA101311A68A007E361C /* ParishEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = B095DA0F1311A68A007E361C /* ParishEvents.m */; };
 		B095DA261311B1AF007E361C /* ParishData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B095DA251311B1AF007E361C /* ParishData.xcdatamodeld */; };
 		B095DA8E1311BECD007E361C /* ParishData 2.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = B095DA271311B1AF007E361C /* ParishData 2.xcdatamodel */; };
@@ -40,13 +39,10 @@
 		B0DC207D12FBC0D500DDB5CD /* ParishMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DC207C12FBC0D500DDB5CD /* ParishMapViewController.m */; };
 		B0E9550B130B6D880065D5FD /* tab-prayer.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E95509130B6D880065D5FD /* tab-prayer.png */; };
 		B0E9550C130B6D880065D5FD /* tab-prayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E9550A130B6D880065D5FD /* tab-prayer@2x.png */; };
+		B0EB040414F89D6100FCA20A /* default-news-article-image.png in Resources */ = {isa = PBXBuildFile; fileRef = B0EB040314F89D6100FCA20A /* default-news-article-image.png */; };
 		C30276EE1301E68F00625F54 /* ParishDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C30276EC1301E68F00625F54 /* ParishDetailViewController.m */; };
 		C30276EF1301E68F00625F54 /* ParishDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30276ED1301E68F00625F54 /* ParishDetailView.xib */; };
 		C3086774130F061300055A3B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3086773130F061300055A3B /* AddressBook.framework */; };
-		C30BB82F130A494F00D32BA8 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB829130A494F00D32BA8 /* EGOImageLoadConnection.m */; };
-		C30BB830130A494F00D32BA8 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB82B130A494F00D32BA8 /* EGOImageLoader.m */; };
-		C30BB831130A494F00D32BA8 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB82E130A494F00D32BA8 /* EGOImageView.m */; };
-		C30BB846130A4C4700D32BA8 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C30BB845130A4C4700D32BA8 /* EGOCache.m */; };
 		C322B771130B000B00D836C5 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B76D130B000B00D836C5 /* back-arrow.png */; };
 		C322B772130B000B00D836C5 /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B76E130B000B00D836C5 /* back-arrow@2x.png */; };
 		C322B773130B000B00D836C5 /* forward-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C322B76F130B000B00D836C5 /* forward-arrow.png */; };
@@ -110,7 +106,6 @@
 		B0720537130A0FD800CCE80D /* JJGNewsCellReference.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JJGNewsCellReference.xib; sourceTree = "<group>"; };
 		B072053E130A11AA00CCE80D /* JJGNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJGNewsCell.h; sourceTree = "<group>"; };
 		B072053F130A11AA00CCE80D /* JJGNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJGNewsCell.m; sourceTree = "<group>"; };
-		B07205A0130A216D00CCE80D /* default-news-article-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-news-article-image.png"; sourceTree = "<group>"; };
 		B095DA0E1311A68A007E361C /* ParishEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishEvents.h; sourceTree = "<group>"; };
 		B095DA0F1311A68A007E361C /* ParishEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishEvents.m; sourceTree = "<group>"; };
 		B095DA271311B1AF007E361C /* ParishData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ParishData 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -126,18 +121,11 @@
 		B0DC207C12FBC0D500DDB5CD /* ParishMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishMapViewController.m; sourceTree = "<group>"; };
 		B0E95509130B6D880065D5FD /* tab-prayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-prayer.png"; sourceTree = "<group>"; };
 		B0E9550A130B6D880065D5FD /* tab-prayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-prayer@2x.png"; sourceTree = "<group>"; };
+		B0EB040314F89D6100FCA20A /* default-news-article-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-news-article-image.png"; sourceTree = "<group>"; };
 		C30276EB1301E68F00625F54 /* ParishDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishDetailViewController.h; sourceTree = "<group>"; };
 		C30276EC1301E68F00625F54 /* ParishDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishDetailViewController.m; sourceTree = "<group>"; };
 		C30276ED1301E68F00625F54 /* ParishDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParishDetailView.xib; sourceTree = "<group>"; };
 		C3086773130F061300055A3B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		C30BB828130A494F00D32BA8 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
-		C30BB829130A494F00D32BA8 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
-		C30BB82A130A494F00D32BA8 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
-		C30BB82B130A494F00D32BA8 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
-		C30BB82D130A494F00D32BA8 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
-		C30BB82E130A494F00D32BA8 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
-		C30BB844130A4C4700D32BA8 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		C30BB845130A4C4700D32BA8 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
 		C322B76D130B000B00D836C5 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
 		C322B76E130B000B00D836C5 /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
 		C322B76F130B000B00D836C5 /* forward-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward-arrow.png"; sourceTree = "<group>"; };
@@ -239,7 +227,6 @@
 			children = (
 				C322B891130B33ED00D836C5 /* DSActivityView */,
 				C3C26E251340ED2800E1B5C1 /* CHCSVParser */,
-				C30BB820130A493500D32BA8 /* EGOImageLoading */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				C35F88F912FF408E000AAE5F /* Model Classes */,
 				C35F88FC12FF40A7000AAE5F /* Application Delegate */,
@@ -267,9 +254,9 @@
 				8D1107310486CEB800E47090 /* Catholic_Diocese-Info.plist */,
 				B095DA251311B1AF007E361C /* ParishData.xcdatamodeld */,
 				C339A2D813124E08007D39DD /* ParishData.sqlite */,
-				B07205A0130A216D00CCE80D /* default-news-article-image.png */,
 				B05DADD9130268130073FFA8 /* Default.png */,
 				B06029A414F8995500F66CD0 /* Default@2x.png */,
+				B0EB040314F89D6100FCA20A /* default-news-article-image.png */,
 				C370A2601315BA2100FBCFA7 /* about-header.jpg */,
 				C370A2611315BA2100FBCFA7 /* about-header@2x.jpg */,
 				C322B75E130AFFF000D836C5 /* Other Buttons */,
@@ -304,45 +291,6 @@
 				B06029A914F899DE00F66CD0 /* Icon-58.png */,
 			);
 			name = Icons;
-			sourceTree = "<group>";
-		};
-		C30BB820130A493500D32BA8 /* EGOImageLoading */ = {
-			isa = PBXGroup;
-			children = (
-				C30BB843130A4C4700D32BA8 /* EGOCache */,
-				C30BB827130A494F00D32BA8 /* EGOImageLoader */,
-				C30BB82C130A494F00D32BA8 /* EGOImageView */,
-			);
-			name = EGOImageLoading;
-			sourceTree = "<group>";
-		};
-		C30BB827130A494F00D32BA8 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				C30BB828130A494F00D32BA8 /* EGOImageLoadConnection.h */,
-				C30BB829130A494F00D32BA8 /* EGOImageLoadConnection.m */,
-				C30BB82A130A494F00D32BA8 /* EGOImageLoader.h */,
-				C30BB82B130A494F00D32BA8 /* EGOImageLoader.m */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		C30BB82C130A494F00D32BA8 /* EGOImageView */ = {
-			isa = PBXGroup;
-			children = (
-				C30BB82D130A494F00D32BA8 /* EGOImageView.h */,
-				C30BB82E130A494F00D32BA8 /* EGOImageView.m */,
-			);
-			path = EGOImageView;
-			sourceTree = "<group>";
-		};
-		C30BB843130A4C4700D32BA8 /* EGOCache */ = {
-			isa = PBXGroup;
-			children = (
-				C30BB844130A4C4700D32BA8 /* EGOCache.h */,
-				C30BB845130A4C4700D32BA8 /* EGOCache.m */,
-			);
-			path = EGOCache;
 			sourceTree = "<group>";
 		};
 		C322B75D130AFFD500D836C5 /* Tab Button Images */ = {
@@ -549,7 +497,6 @@
 				C3AA8E9113034F55007899DD /* ParishSearchView.xib in Resources */,
 				C3D5B5771305E56600465775 /* WebView.xib in Resources */,
 				B0720538130A0FD800CCE80D /* JJGNewsCellReference.xib in Resources */,
-				B07205A1130A216D00CCE80D /* default-news-article-image.png in Resources */,
 				C322B771130B000B00D836C5 /* back-arrow.png in Resources */,
 				C322B772130B000B00D836C5 /* back-arrow@2x.png in Resources */,
 				C322B773130B000B00D836C5 /* forward-arrow.png in Resources */,
@@ -572,6 +519,7 @@
 				B06029AB14F899DE00F66CD0 /* Icon-72.png in Resources */,
 				B06029AC14F899DE00F66CD0 /* Icon-29.png in Resources */,
 				B06029AD14F899DE00F66CD0 /* Icon-58.png in Resources */,
+				B0EB040414F89D6100FCA20A /* default-news-article-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,10 +542,6 @@
 				C3AA8E9013034F55007899DD /* ParishSearchViewController.m in Sources */,
 				C3D5B5761305E56600465775 /* WebViewController.m in Sources */,
 				B0720540130A11AA00CCE80D /* JJGNewsCell.m in Sources */,
-				C30BB82F130A494F00D32BA8 /* EGOImageLoadConnection.m in Sources */,
-				C30BB830130A494F00D32BA8 /* EGOImageLoader.m in Sources */,
-				C30BB831130A494F00D32BA8 /* EGOImageView.m in Sources */,
-				C30BB846130A4C4700D32BA8 /* EGOCache.m in Sources */,
 				C322B7F7130B1AA100D836C5 /* JJGCLController.m in Sources */,
 				C322B896130B33F700D836C5 /* DSActivityView.m in Sources */,
 				C3AEE471130E26C700ED7B8F /* AddPrayerViewController.m in Sources */,

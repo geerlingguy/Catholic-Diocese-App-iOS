@@ -7,7 +7,6 @@
 
 #import "NewsViewController.h"
 #import "JJGNewsCell.h"
-#import "EGOCache.h"
 #import "WebViewController.h"
 #import "DSActivityView.h"
 
@@ -99,9 +98,8 @@
 	NSString *nodeSummaryForDisplay = [nodeSummary stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
 	cell.articleSummary.text = nodeSummaryForDisplay;
 	
-	// Node Image (if exists)
-	NSString *nodeImageURL = [[articles objectAtIndex: storyIndex] objectForKey:@"articleImage"];
-	[cell setNewsCellPhoto:nodeImageURL];
+	// Node Image (if exists) - Disabled since we're not using EGOImageCache.
+	// NSString *nodeImageURL = [[articles objectAtIndex: storyIndex] objectForKey:@"articleImage"];
 	
 	return cell;
 }
