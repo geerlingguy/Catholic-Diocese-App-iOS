@@ -25,8 +25,7 @@
 	mainAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
 	[[self parishListTableView] reloadData];
@@ -35,8 +34,10 @@
 
 #pragma mark Configure the Table View & Cells
 
-// Count of rows for tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    /**
+     * Count of rows for tableview.
+     */
 	NSInteger rows;
 	
 	if (tableView == [[self searchDisplayController] searchResultsTableView])
@@ -47,8 +48,11 @@
 	return rows;
 }
 
-// Set up the table cells (individually)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /**
+     * Set up the table cells (individually).
+     */
+
 	NSInteger row = [indexPath row];
 	NSString *parishNameForThisRow = nil;
 	
@@ -99,8 +103,7 @@
 #pragma mark Search Handling
 
 - (void)handleSearchForTerm:(NSString *)searchTerm {
-	if ([self searchResults] == nil)
-	{
+	if ([self searchResults] == nil) {
 		NSMutableArray *array = [[NSMutableArray alloc] init];
 		[self setSearchResults:array];
 		array = nil;
@@ -131,7 +134,6 @@
 #pragma mark Respond to UI outlets
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	
 	// Perform address lookup in background thread
 	[self performSelectorInBackground:@selector(getCoordinatesForGivenAddress:) withObject:textField.text];
 	
@@ -149,45 +151,38 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
 	@autoreleasepool {
-	
-	// Format entered address in string to pass to Google Maps API, and get back coordinates.
-	// @config - Google Maps API for getting address coordinates.
-		NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv", 
-							   [address	stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSASCIIStringEncoding error:nil];
-		
-		// Stop network activity spinner.
-		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-		
-		// Format returned string (CSV) into lat/long measurements.
-		NSArray *listItems = [locationString componentsSeparatedByString:@","];
-		
-		if([listItems count] >= 4 && [[listItems objectAtIndex:0] isEqualToString:@"200"]) {
-			
-			latitude = [listItems objectAtIndex:2];
-			longitude = [listItems objectAtIndex:3];
-			
-			// Put latitude and longitude values into array
-			NSArray *coordinatesToPush = [[NSArray alloc] initWithObjects:@"noParishHere", latitude, longitude, @"dropPin", @"dontOpenAnnotation", nil];
-			
-			// Pass the new center coordinates over to the parish map view through NSNotificationCenter.
-			NSNotificationCenter *note = [NSNotificationCenter defaultCenter];
-			[note postNotificationName:@"ParishMapUpdateEvent" object:coordinatesToPush];
-			
-		} else {
-			
-			//Show error
-			UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Couldn't Find Location"
-															  message:@"Either this device is not connected to the Internet, or the location entered needs to be more precise."
-															 delegate:nil 
-													cancelButtonTitle:@"OK"
-													otherButtonTitles:nil];
-			[myAlert show];
-			
-    }
-		
-		 // Fix a crash, due to NSAutoReleasePool
-	
+        // Format entered address in string to pass to Google Maps API, and get back coordinates.
+        // @config - Google Maps API for getting address coordinates.
+        NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv", 
+                                   [address	stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSASCIIStringEncoding error:nil];
+            
+        // Stop network activity spinner.
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        // Format returned string (CSV) into lat/long measurements.
+        NSArray *listItems = [locationString componentsSeparatedByString:@","];
+        
+        if([listItems count] >= 4 && [[listItems objectAtIndex:0] isEqualToString:@"200"]) {
+            latitude = [listItems objectAtIndex:2];
+            longitude = [listItems objectAtIndex:3];
+            
+            // Put latitude and longitude values into array
+            NSArray *coordinatesToPush = [[NSArray alloc] initWithObjects:@"noParishHere", latitude, longitude, @"dropPin", @"dontOpenAnnotation", nil];
+            
+            // Pass the new center coordinates over to the parish map view through NSNotificationCenter.
+            NSNotificationCenter *note = [NSNotificationCenter defaultCenter];
+            [note postNotificationName:@"ParishMapUpdateEvent" object:coordinatesToPush];
+        }
+        else {
+            //Show error
+            UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Couldn't Find Location"
+                                                              message:@"Either this device is not connected to the Internet, or the location entered needs to be more precise."
+                                                             delegate:nil 
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [myAlert show];	
+        }
 	}
 }
 
@@ -206,8 +201,6 @@
 
 	[self setSearchResults:nil];
 }
-
-
 
 
 @end

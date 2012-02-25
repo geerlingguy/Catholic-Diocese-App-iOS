@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class AppDelegate;
 
 @interface ParishSearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UISearchDisplayDelegate, UISearchBarDelegate> {
@@ -27,5 +28,6 @@
 
 - (void)getCoordinatesForGivenAddress:(NSString *)address;
 - (void)handleSearchForTerm:(NSString *)searchTerm;
+
 
 @end

@@ -23,8 +23,11 @@ static UIFont *titleFont;
 
 #pragma mark Regular controller methods
 
-// Load in the latest prayers on the first view load.
 - (void)viewDidLoad {
+    /**
+     * Load in the latest prayers on the first view load.
+     */
+
 	[super viewDidLoad];
 	
 	// Start the 'loading' overlay view.
@@ -41,10 +44,12 @@ static UIFont *titleFont;
 
 #pragma mark Prayer request functionality
 
-// Secondary thread to load in the prayers in the background on view load.
 - (void)refreshThePrayers {
-	@autoreleasepool {
-	
+    /**
+     * Secondary thread to load in the prayers in the background on view load.
+     */
+
+	@autoreleasepool {	
 	// Start the network activity spinner in the top status bar.
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 		
@@ -56,9 +61,9 @@ static UIFont *titleFont;
 		[prayerParser parse];
 		[tblLatestPrayers reloadData]; // Need to refresh the table after we fill up the array again.
 		[prayerParser setDelegate:nil]; // Resolves a 1024-byte memory leak
-	
 	}
 }
+
 
 #pragma mark Table View Cell calculations
 
@@ -107,20 +112,29 @@ static UIFont *titleFont;
 	return titleSize.height + subtitleSize.height;
 }
 
+
 #pragma mark Table View layout
 
-// Set number of sections in tableview to 1 (explicitly).
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    /**
+     * Set number of sections in tableview to 1 (explicitly).
+     */
+
 	return [prayers count];
 }
 
-// Set the count of the table's rows here.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    /**
+     * Set the count of the table's rows here.
+     */
+
 	return 1;
 }
 
-// Set the cell header - name
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {    
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    /**
+     * Set the cell header - name.
+     */
 
     NSString *name = [[prayers objectAtIndex: section] objectForKey: @"prayerName"];
 	NSString *headerTitle = [NSString stringWithFormat:@"From %@:", name];
@@ -128,8 +142,11 @@ static UIFont *titleFont;
     return headerTitle;
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /**
+     * Customize the appearance of table view cells.
+     */
+
 	static NSString *CellIdentifier = @"Cell";
 	
 	// We also experimented with UITableViewCellStyleValue2, with the date on the left... but decided against it.
@@ -149,8 +166,10 @@ static UIFont *titleFont;
 	return cell;
 }
 
-// Set cell height (variable, depends on length of prayer request)
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /**
+     * Set cell height (variable, depends on length of prayer request).
+     */
 	
 	int prayerIndex = [indexPath indexAtPosition:0];
 	NSString *title = [[prayers objectAtIndex:prayerIndex] objectForKey: @"prayerSummary"];
@@ -160,19 +179,18 @@ static UIFont *titleFont;
 	return (height < CONST_Cell_height ? CONST_Cell_height : height);
 }
 
+
 #pragma mark Parser methods
 
-/*
- 
- XML feed is in the format:
- 
- <node>
-   <title>prayer title</title>
-   <link>http://www.example.com</link>
-   <description>prayer summary</description>
-   <pubDate>prayer date</pubDate>
- </node>
- 
+/**
+ * XML feed is in the format:
+ *
+ * <node>
+ *   <title>prayer title</title>
+ *   <link>http://www.example.com</link>
+ *   <description>prayer summary</description>
+ *   <pubDate>prayer date</pubDate>
+ * </node>
  */
 
 - (void)parser:(NSXMLParser *)prayerParser validationErrorOccurred:(NSError *)err {
@@ -265,15 +283,21 @@ didStartElement:(NSString *)elementName
 	[DSBezelActivityView removeViewAnimated:YES];
 }
 
+
 #pragma mark Respond to UI outlets
 
-// Respond to touch event to refresh prayer request list.
 - (IBAction)refreshXMLForPrayers:(id)sender {
+    /**
+     * Respond to touch event to refresh prayer request list.
+     */
+
 	[self performSelectorInBackground:@selector(refreshThePrayers) withObject:nil];
 }
 
-// Respond to touch event to add a new prayer request.
 - (IBAction)addPrayerRequestButton:(id)sender {
+    /**
+     * Respond to touch event to add a new prayer request.
+     */
 	
 	// Set up parish detail controller, pass parish name and number to it
 	AddPrayerViewController *addPrayerView = [[AddPrayerViewController alloc] initWithNibName:@"AddPrayerView" bundle:nil];
@@ -282,6 +306,7 @@ didStartElement:(NSString *)elementName
 	// Push to the parish detail controller
 	[self.navigationController pushViewController:addPrayerView animated:YES];
 }
+
 
 #pragma mark Cleanup functions
 
@@ -297,8 +322,6 @@ didStartElement:(NSString *)elementName
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
 
 
 @end

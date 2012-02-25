@@ -17,7 +17,6 @@
 	
 @private
 	EGOImageView* imageView;
-	
 }
 
 @property (nonatomic,strong) IBOutlet UILabel *articleTitle;
@@ -26,5 +25,6 @@
 @property (nonatomic,strong) IBOutlet UIImageView *articleImage;
 
 - (void)setNewsCellPhoto:(NSString*)articleImage;
+
 
 @end

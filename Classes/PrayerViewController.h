@@ -34,5 +34,4 @@
 - (int) heightOfCellWithTitle:(NSString*)titleText andSubtitle:(NSString*)subtitleText;
 
 
-
 @end

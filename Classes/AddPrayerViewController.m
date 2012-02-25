@@ -13,8 +13,12 @@
 
 @synthesize addPrayerWebView;
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+    /**
+     * Implement viewDidLoad to do additional setup after loading the view,
+     * typically from a nib.
+     */
+
     [super viewDidLoad];
 
 	// @config - URL on your website for adding prayer requests.
@@ -70,8 +74,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
 
 
 @end

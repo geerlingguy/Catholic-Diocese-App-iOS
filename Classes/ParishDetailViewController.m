@@ -12,6 +12,7 @@
 #import "WebViewController.h"
 #import "ParishMapViewController.h"
 
+
 @implementation ParishDetailViewController
 
 @synthesize mainAppDelegate, title, parishTitle, number, pAddress, pCity, pState, pZip, pURL, pLatitude, pLongitude;
@@ -100,24 +101,22 @@
 				break;
 		}
 	}
-	
+
 	// NSLog(@"Parish mass times array: %@", parishMassTimes);
 	// NSLog(@"Parish reconciliation times array: %@", parishReconciliationTimes);
 	// NSLog(@"Parish adoration times array: %@", parishAdorationTimes);
-	
 }
 
 
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // There are four sections, for address, mass times, show on map, and more information, in that order.
+    // There are four sections, for address, mass times, show on map, and more
+    // information, in that order.
     return 6;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
 	// The number of rows varies by section.
     NSInteger rows = 0;
     switch (section) {
@@ -145,9 +144,7 @@
     return rows;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 	static NSString *CellIdentifier = @"CellIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -288,9 +285,11 @@
 	}
 }
 
-// Handle taps of certain table rows
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+    /**
+     * Handle taps of certain table rows.
+     */
+
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	// Get route from Maps app - userLocation to the parish address/coordinates.
@@ -379,7 +378,7 @@
     NSString *headerTitle = nil;
     switch (section) {
         case 0:
-            headerTitle = @"Address"; // But view used instead (@see viewForHeaderInSection)
+            headerTitle = @"Address"; // But view used instead (@see viewForHeaderInSection).
             break;
         case 1:
             headerTitle = @"Mass Times";
@@ -433,11 +432,8 @@
 #pragma mark Custom Location Manager methods
 
 - (void)locationUpdate:(CLLocation *)location {
-	
 	userLatitude = [NSNumber numberWithDouble:location.coordinate.latitude];
 	userLongitude = [NSNumber numberWithDouble:location.coordinate.longitude];
-	 // Retain for later, if user taps on address.
-	 // Retain for later, if user taps on address.
 	
 	// After user location found, stop the location manager
 	// Note: We don't need any specific accuracy here, because CLLocationManager already has a pretty good
@@ -464,8 +460,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
 
 
 @end

@@ -22,7 +22,5 @@
 @property (nonatomic, strong) NSString * parishZipCode;
 @property (nonatomic, strong) NSString * parishState;
 
+
 @end
-
-
-

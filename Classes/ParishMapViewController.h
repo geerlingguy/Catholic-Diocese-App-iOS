@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <Mapkit/MapKit.h>
 
+
 @class AppDelegate;
 
 @interface ParishMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> {
@@ -32,7 +33,9 @@
 - (void)createAnnotationWithCoords:(CLLocationCoordinate2D)coords andTitle:(NSString *)title andSubtitle:(NSString *)subtitle andNumber:(NSNumber *)number;
 - (void)createAnnotationsOfParishes;
 
+
 @end
+
 
 @interface parishAnnotation: NSObject <MKAnnotation> {
     CLLocationCoordinate2D coordinate;
@@ -49,5 +52,6 @@
 @property (nonatomic, strong) NSNumber *number;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coords;
+
 
 @end

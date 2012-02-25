@@ -31,11 +31,13 @@
 	[self performSelectorInBackground:@selector(refreshTheNews) withObject:nil];
 }
 
-// Method loads or refreshes the news articles.
 -(void)refreshTheNews {
-	@autoreleasepool {
-	
-	// Start the network activity spinner in the top status bar (see parserDidStartDocument for start).
+    /**
+     * Method loads or refreshes the news articles.
+     */
+
+	@autoreleasepool {	
+        // Start the network activity spinner in the top status bar (see parserDidStartDocument for start).
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 		
 		// Set up URL and parser
@@ -46,26 +48,33 @@
 		[parser parse];
 		[tblLatestNews reloadData]; // Need to refresh the table after we fill up the array again.
 		[parser setDelegate:nil]; // Resolves a 1024-byte memory leak
-	
 	}
 }
 
 
 #pragma mark Table View layout
 
-// Set number of sections in tableview to 1 (explicitly).
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    /**
+     * Set number of sections in tableview to 1 (explicitly).
+     */
+
 	return 1;
 }
 
-// Set the count of the table's rows here.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    /**
+     * Set the count of the table's rows here.
+     */
+
 	return [articles count];
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+    /**
+     * Customize the appearance of table view cells.
+     */
+
 	static NSString *CellIdentifier = @"Cell";
 	
 	// We also experimented with UITableViewCellStyleValue2, with the date on the left... but decided against it.
@@ -98,7 +107,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	// Navigation logic
+	/**
+     * Navigation logic.
+     */
 	
 	int storyIndex = [indexPath indexAtPosition: [indexPath length] - 1];
 	
@@ -106,10 +117,10 @@
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	// open in Safari
+	// Open in Safari.
 	// [[UIApplication sharedApplication] openURL:[NSURL URLWithString:storyLink]];
 	
-	// Open link in webview
+	// Open in webview.
 	// @todo - Consider using MIT-Licensed JJGWebView.
 	WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
 	webViewController.title = [[articles objectAtIndex: storyIndex] objectForKey: @"articleTitle"];
@@ -118,26 +129,27 @@
 	[self.navigationController pushViewController:webViewController animated:YES];
 }
 
-// Set cell height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /**
+     * Set cell height.
+     */
+
 	return 135;
 }
 
 
 #pragma mark Parser methods
 
-/*
-
- RSS feed is in the format:
- 
- <item>
- <title>article title</title>
- <pubDate>article date</pubDate>
- <summary>article summary</summary>
- <link>http://www.example.com</link>
- <articleImage>article date</articleImage>
- </item>
- 
+/**
+ * RSS feed is in the format:
+ *
+ * <item>
+ *   <title>article title</title>
+ *   <pubDate>article date</pubDate>
+ *   <summary>article summary</summary>
+ *   <link>http://www.example.com</link>
+ *   <articleImage>article date</articleImage>
+ * </item>
  */
 
 - (void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)err {
@@ -163,7 +175,6 @@
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
-	
 	// Start the network activity spinner in the top status bar (see parserDidEndDocument for stop).
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
@@ -178,8 +189,7 @@ didStartElement:(NSString *)elementName
 	
 	currentElement = elementName;
 	
-	if ([elementName isEqualToString:@"node"])
-	{
+	if ([elementName isEqualToString:@"node"]) {
 		itemActive = YES;
 		currentTitle = [[NSMutableString alloc] init];
 		currentLink = [[NSMutableString alloc] init];
@@ -191,25 +201,29 @@ didStartElement:(NSString *)elementName
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
 	
-	if (itemActive)
-	{
+	if (itemActive) {
 		NSString *fixedString = [string stringByTrimmingCharactersInSet:
 								 [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 		
-		if ([currentElement isEqualToString:@"title"])
+		if ([currentElement isEqualToString:@"title"]) {
 			[currentTitle appendString:fixedString];
-		
-		if ([currentElement isEqualToString:@"link"])
+        }
+
+		if ([currentElement isEqualToString:@"link"]) {
 			[currentLink appendString:fixedString];
-		
-		if ([currentElement isEqualToString:@"pubDate"])
+        }
+
+		if ([currentElement isEqualToString:@"pubDate"]) {
 			[pubDate appendString:fixedString];
-		
-		if ([currentElement isEqualToString:@"summary"])
+        }
+
+		if ([currentElement isEqualToString:@"summary"]) {
 			[currentSummary appendString:fixedString];
-		
-		if ([currentElement isEqualToString:@"articleImage"])
+        }
+
+		if ([currentElement isEqualToString:@"articleImage"]) {
 			[currentImage appendString:fixedString];
+        }
 	}
 }
 
@@ -218,8 +232,7 @@ didStartElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI 
  qualifiedName:(NSString *)qName {
 	
-	if ([elementName isEqualToString:@"node"])
-	{
+	if ([elementName isEqualToString:@"node"]) {
 		NSDictionary *record = [NSDictionary dictionaryWithObjectsAndKeys:
 								currentTitle,@"articleTitle",
 								currentLink,@"articleURL",
@@ -236,7 +249,6 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-	
 	// Stop the network activity spinner in the top status bar (see parserDidStartDocument for start).
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
@@ -247,8 +259,11 @@ didStartElement:(NSString *)elementName
 
 #pragma mark Respond to UI outlets
 
-// Respond to touch event to refresh XML.
 - (IBAction)refreshXMLForArchdiocesanFeed:(id)sender {
+    /**
+     * Respond to touch event to refresh XML.
+     */
+
 	// Start the network activity spinner in the top status bar (see parserDidStartDocument for start).
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
@@ -269,7 +284,6 @@ didStartElement:(NSString *)elementName
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
-
 
 
 @end

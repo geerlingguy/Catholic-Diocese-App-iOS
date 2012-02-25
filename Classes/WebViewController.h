@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class AppDelegate;
 
 @interface WebViewController : UIViewController <UITextFieldDelegate, UIWebViewDelegate, UIActionSheetDelegate> {
@@ -31,5 +32,6 @@
 @property (nonatomic,strong) UIBarButtonItem *refreshButton;
 
 - (IBAction)actionButtonSelected:(id)sender;
+
 
 @end

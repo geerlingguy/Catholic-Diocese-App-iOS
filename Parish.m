@@ -20,4 +20,5 @@
 @dynamic parishZipCode;
 @dynamic parishState;
 
+
 @end

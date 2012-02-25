@@ -18,4 +18,5 @@
 @dynamic eventLocation;
 @dynamic eventStart;
 
+
 @end

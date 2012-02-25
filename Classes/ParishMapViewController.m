@@ -13,7 +13,6 @@
 #import "ParishDetailViewController.h"
 
 
-/******************** parishAnnotation **********************/
 @implementation parishAnnotation
 
 @synthesize coordinate, title, subtitle, parishTitle, number;
@@ -30,7 +29,6 @@
 @end
 
 
-/******************** ParishMapViewController **********************/
 @implementation ParishMapViewController
 
 @synthesize mainAppDelegate, parishMap, segmentedControlMapType, zoomToUserLocation;
@@ -38,8 +36,11 @@
 
 #pragma mark Regular controller methods
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+    /**
+     * Implement viewDidLoad to do additional setup after loading the view,
+     * typically from a nib.
+     */
     [super viewDidLoad];
 	
 	mainAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -65,19 +66,18 @@
 
 #pragma mark Notification method to update map center
 
-// Update parish map to new coordinates / range if we have a new parish map update event.
 - (void)updateParishMapCenter:(NSNotification *)note {
-	
-	/**
-	 *
-	 *   Array index key:
+    /**
+     * Update parish map to new coordinates / range if we have a new parish map
+     * update event.
+     *
+	 * Array index key:
 	 *
 	 *   0 = parish name (NSString)
 	 *   1 = latitude (NSString)
 	 *   2 = longitude (NSString)
 	 *   3 = whether to drop pin (NSString)
 	 *   4 = whether to open the annotation at a given point (NSString)
-	 *
 	 */
 	
 	id newCoordinates = [note object];
@@ -98,9 +98,11 @@
 	[parishMap setRegion:region animated:TRUE];
 	[parishMap regionThatFits:region];
 
-	// Setup and add annotation for this dropped pin (if fourth item in array says "dropPin").
+	// Setup and add annotation for this dropped pin (if fourth item in array
+    // says "dropPin").
 	if ([newCoordinates objectAtIndex:3] == @"dropPin") {
-		// Clear out previous user-entered dropped pin (so map doesn't get cluttered).
+		// Clear out previous user-entered dropped pin (so map doesn't get
+        // cluttered).
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"Dropped Pin"];
 		[parishMap removeAnnotations:[parishMap.annotations filteredArrayUsingPredicate:predicate]];
 		
@@ -113,7 +115,8 @@
 		[parishMap selectAnnotation:userAddedAnnotation animated:YES]; // Select the annotation.
 	}
 	
-	// Open the annotation view for the given location (if the last item in the array says "openAnnotation").
+	// Open the annotation view for the given location (if the last item in the
+    // array says "openAnnotation").
 	if ([newCoordinates objectAtIndex:4] == @"openAnnotation") {
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", [newCoordinates objectAtIndex:0]];
 		for (id myAnnotation in [parishMap.annotations filteredArrayUsingPredicate:predicate]) {
@@ -125,11 +128,14 @@
 
 #pragma mark Parish annotation creation
 
-// Function to create an annotation
 - (void)createAnnotationWithCoords:(CLLocationCoordinate2D)coords
 						  andTitle:(NSString *)title
 					   andSubtitle:(NSString *)subtitle
 						 andNumber:(NSNumber *)number {
+    /**
+     * Function to create an annotation.
+     */
+
     parishAnnotation *annotation = [[parishAnnotation alloc] initWithCoordinate:coords];
     annotation.title = title;
     annotation.subtitle = subtitle;
@@ -138,11 +144,13 @@
     [parishMap addAnnotation:annotation]; // Just add one at a time.
 }
 
-// Function to create an annotation for each parish.
 - (void)createAnnotationsOfParishes {
+    /**
+     * Function to create an annotation for each parish.
+     */
+
 	@autoreleasepool {
-	
-	// Set up variables for adding map annotations (later)
+        // Set up variables for adding map annotations (later)
 		CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(0,0);
 		NSString *pName = @"Parish Name";
 		NSString *pSubtitle = @"Parish Description";
@@ -156,12 +164,10 @@
 			
 			[self createAnnotationWithCoords:coords andTitle:pName andSubtitle:pSubtitle andNumber:pNumber];
 		}
-
 	}
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-	
 	// If it's the user location, just return nil.
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
@@ -182,7 +188,8 @@
 		pinView.animatesDrop = YES;
 		// @config - Color of pin for parish map.
 		pinView.pinColor = MKPinAnnotationColorGreen;
-	} else {
+	}
+    else {
 		// If there's a parish number, this is a parish annotation.
 		pinView.animatesDrop = NO; // For parishes - But it's fun to watch 200+ pins dropping :-)
 		pinView.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure]; // Show detail disclosure button (blue arrow)
@@ -194,7 +201,6 @@
 }
 
 - (void)mapView:(MKMapView *)parishMap annotationView:(MKAnnotationView *)pinView calloutAccessoryControlTapped:(UIControl *)control {
-
 	parishAnnotation* annotation;
 	annotation = (parishAnnotation *) pinView.annotation;
 	ParishDetailViewController *parishDetailViewController = [[ParishDetailViewController alloc] initWithNibName:@"ParishDetailView" bundle:nil];
@@ -208,11 +214,14 @@
 
 #pragma mark User location interactions
 
-// Center map on user location (initially)
-// This method works fine in iOS 4.3, and seems more elegant, but doesn't work with 4.2.x
 //- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-//	// See for more info: http://archstldev.com/node/845
-//    for(MKAnnotationView *annotationView in views) {
+//  /**
+//   * Center map on user location (initially). This method works fine in iOS
+//   * 4.3, and seems more elegant, but doesn't work with 4.2.x. See for more
+//   * info: http://archstldev.com/node/845
+//   */
+//
+//    for (MKAnnotationView *annotationView in views) {
 //        if(annotationView.annotation == parishMap.userLocation) {
 //            MKCoordinateRegion region;
 //            MKCoordinateSpan span;
@@ -232,12 +241,15 @@
 //    }
 //}
 
-// Center map on user location (initially)
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    /**
+     * Center map on user location (initially).
+     */
+
 	MKCoordinateRegion region;
 	
 	if (zoomToUserLocation) {
-	  // @config - Initial zoom after user location found.
+        // @config - Initial zoom after user location found.
 		region.span.latitudeDelta = 0.03;
 		region.span.longitudeDelta = 0.03;
 		region.center = userLocation.coordinate;
@@ -245,7 +257,7 @@
 		// For debug / simulator:
 		// CLLocationCoordinate2D usercoords = CLLocationCoordinate2DMake(38.579428,-90.335843);
 		// region.center = usercoords;
-		
+
 		// Check if user's latitude and longitude are within the St. Louis region.
 		// @config - Map will only zoom if userLoction within this range.
 		if (userLocation.coordinate.latitude < 39.300 && userLocation.coordinate.latitude > 37.833 &&
@@ -253,7 +265,7 @@
 			[parishMap setRegion:region animated:YES];
 		}
 
-    //changed from NO to 0 b/c of an ARC compatibility issue
+        //changed from NO to 0 b/c of an ARC compatibility issue
 		zoomToUserLocation = 0; 
 	}
 }
@@ -261,17 +273,22 @@
 
 #pragma mark Interface Elements
 
-// Respond to search button test event
 - (IBAction)btnSearch:(id)sender {
+    /**
+     * Respond to search button test event.
+     */
+
 	ParishSearchViewController *parishSearchViewController = [[ParishSearchViewController alloc] initWithNibName:@"ParishSearchView" bundle:nil];
 	parishSearchViewController.title = @"Parish Search";
 	
 	[self.navigationController pushViewController:parishSearchViewController animated:YES];
 }
 
-// Respond to locate me button
 - (IBAction)btnLocateMe:(id)sender {
-	
+    /**
+     * Respond to locate me button.
+     */
+
 	if (parishMap.userLocation.location != nil) { // Check to see if there's a value for user location
 		MKCoordinateRegion region;
 		MKCoordinateSpan span;
@@ -288,7 +305,8 @@
 		
 		[parishMap setRegion:region animated:TRUE];
 		[parishMap regionThatFits:region];
-	} else { // If there's no user location, just show an alert.
+	}
+    else { // If there's no user location, just show an alert.
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Location Found"
 														 message:@"We can't find your location on the map. Please try to connect to the Internet or find better GPS coverage, and try again."
 														delegate:self cancelButtonTitle:@"OK"
@@ -297,8 +315,11 @@
 	}
 }
 
-// Respond to Map View Type Segmented Controller
 - (IBAction)changeMapType: (id)sender{
+    /**
+     * Respond to Map View Type Segmented Controller.
+     */
+
 	if(segmentedControlMapType.selectedSegmentIndex == 0){
 		parishMap.mapType = MKMapTypeStandard;
 	}
@@ -326,8 +347,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
 
 
 @end

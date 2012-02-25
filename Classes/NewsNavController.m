@@ -11,9 +11,6 @@
 @implementation NewsNavController
 
 
-#pragma mark Regular controller methods
-
-
 #pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +25,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-
 
 
 @end

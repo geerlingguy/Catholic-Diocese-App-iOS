@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "JJGCLController.h"
 
+
 @class AppDelegate;
 
 @interface ParishDetailViewController : UIViewController <JJGCLControllerDelegate> {
@@ -55,5 +56,6 @@
 - (void)getParishEventTimeInformation;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
+
 
 @end

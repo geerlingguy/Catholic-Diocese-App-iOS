@@ -20,7 +20,5 @@
 @property (nonatomic, strong) NSString * eventLocation;
 @property (nonatomic, strong) NSString * eventStart;
 
+
 @end
-
-
-
