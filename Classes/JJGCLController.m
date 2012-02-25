@@ -39,7 +39,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
-    self.locationManager;
+    [self locationManager];
 }
 
 
