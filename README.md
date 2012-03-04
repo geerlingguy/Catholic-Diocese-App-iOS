@@ -4,11 +4,13 @@
 
 The Catholic Diocese App was created in 2011 by Jeff Geerling of Midwestern Mac, LLC, originally for the Archdiocese of St. Louis, MO, USA. The app was intended to help not only the St. Louis Archdiocese, but also any other diocese that wanted to build an App for iOS devices.
 
+## License
+
+The Catholic Diocese App is licensed under an MIT/Expat license. See LICENSE.txt for more information.
+
 ## Current Status
 
-The app uses code from a variety of Open Source projects and libraries for iOS, and is currently being reworked from a 'get it working' state that was made to get a release of the Catholic STL app out.
-
-Please help us make this app more universal, more stable, and able to be built easily for different needs in different dioceses.
+The app is ready for adaptation to any dioceses' needs, though there are still a few features that we're working on to make it easier to adapt, and more fully-featured, such as a universal version of the app that will also work great on the iPad, and an Android port. Stay tuned to Open Source Catholic and to the Wiki pages of this project on GitHub for more info and updates.
 
 ## Development
 
@@ -23,4 +25,4 @@ Please help us make this app even better!
 
   - App originally created by Jeff Geerling in 2011.
   - Original app development supported by the Archdiocese of St. Louis.
-  - Further improvements sponsored by Midwestern Mac, LLC, Open Source Catholic, etc.
+  - Further improvements sponsored by Midwestern Mac, LLC, Open Source Catholic, the Jesuit Conference, etc.
