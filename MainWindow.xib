@@ -71,12 +71,12 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="509935434">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="592195638">
-						<string key="IBUITitle">Prayer</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="828992023">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="1070397777">
+						<string key="IBUITitle">News</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">tab-prayer.png</string>
+							<string key="NSResourceName">tab-news.png</string>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -90,7 +90,7 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="709865644">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="78823645">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{320, 44}</string>
@@ -101,13 +101,19 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="408361105">
+						<object class="IBUIViewController" id="893230384">
 							<reference key="IBUIToolbarItems" ref="0"/>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="838383307">
-								<string key="IBUITitle">Prayers</string>
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="650605262">
+								<string key="IBUITitle">News</string>
+								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="1028184403">
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIStyle">1</int>
+									<reference key="IBUINavigationItem" ref="650605262"/>
+									<int key="IBUISystemItemIdentifier">13</int>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="509935434"/>
+							<reference key="IBUIParentViewController" ref="828992023"/>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="IBUIInterfaceOrientation">1</int>
 								<int key="interfaceOrientation">1</int>
@@ -171,12 +177,13 @@
 							</object>
 						</object>
 					</object>
-					<object class="IBUINavigationController" id="828992023">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="1070397777">
-							<string key="IBUITitle">News</string>
+					<reference ref="828992023"/>
+					<object class="IBUINavigationController" id="509935434">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="592195638">
+							<string key="IBUITitle">Prayer</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">tab-news.png</string>
+								<string key="NSResourceName">tab-prayer.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -188,7 +195,7 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="78823645">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="709865644">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{320, 44}</string>
@@ -199,19 +206,13 @@
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="893230384">
+							<object class="IBUIViewController" id="408361105">
 								<reference key="IBUIToolbarItems" ref="0"/>
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="650605262">
-									<string key="IBUITitle">Archdiocesan News</string>
-									<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="1028184403">
-										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<int key="IBUIStyle">1</int>
-										<reference key="IBUINavigationItem" ref="650605262"/>
-										<int key="IBUISystemItemIdentifier">13</int>
-									</object>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="838383307">
+									<string key="IBUITitle">Prayers</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="828992023"/>
+								<reference key="IBUIParentViewController" ref="509935434"/>
 								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 									<int key="IBUIInterfaceOrientation">1</int>
 									<int key="interfaceOrientation">1</int>
@@ -221,7 +222,6 @@
 							</object>
 						</object>
 					</object>
-					<reference ref="509935434"/>
 					<object class="IBUIViewController" id="1006789453">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="370121646">
 							<string key="IBUITitle">About</string>

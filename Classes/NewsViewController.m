@@ -41,7 +41,7 @@
 		
 		// Set up URL and parser
 		// @config - Path to XML feed of the latest news.
-		NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-news-example.xml"]];
+		NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-news-example-rss.xml"]];
 		parser = [[NSXMLParser alloc] initWithData:xml];
 		parser.delegate = self;
 		[parser parse];
@@ -144,9 +144,8 @@
  * <item>
  *   <title>article title</title>
  *   <pubDate>article date</pubDate>
- *   <summary>article summary</summary>
+ *   <description>article summary</description>
  *   <link>http://www.example.com</link>
- *   <articleImage>article date</articleImage>
  * </item>
  */
 
@@ -187,13 +186,12 @@ didStartElement:(NSString *)elementName
 	
 	currentElement = elementName;
 	
-	if ([elementName isEqualToString:@"node"]) {
+	if ([elementName isEqualToString:@"item"]) {
 		itemActive = YES;
 		currentTitle = [[NSMutableString alloc] init];
 		currentLink = [[NSMutableString alloc] init];
 		pubDate = [[NSMutableString alloc] init];
 		currentSummary = [[NSMutableString alloc] init];
-		currentImage = [[NSMutableString alloc] init];
 	}
 }
 
@@ -215,12 +213,9 @@ didStartElement:(NSString *)elementName
 			[pubDate appendString:fixedString];
         }
 
-		if ([currentElement isEqualToString:@"summary"]) {
+		if ([currentElement isEqualToString:@"description"]) {
+            // Strip HTML tags from markup in fixedString.
 			[currentSummary appendString:fixedString];
-        }
-
-		if ([currentElement isEqualToString:@"articleImage"]) {
-			[currentImage appendString:fixedString];
         }
 	}
 }
@@ -229,19 +224,21 @@ didStartElement:(NSString *)elementName
  didEndElement:(NSString *)elementName 
   namespaceURI:(NSString *)namespaceURI 
  qualifiedName:(NSString *)qName {
-	
-	if ([elementName isEqualToString:@"node"]) {
+
+	if ([elementName isEqualToString:@"item"]) {
+        // Cast summary/description to string to run through stripTags.
+        NSString *summary = [NSString stringWithString:currentSummary];
+
+        // Build record for the current item element.
 		NSDictionary *record = [NSDictionary dictionaryWithObjectsAndKeys:
-								currentTitle,@"articleTitle",
-								currentLink,@"articleURL",
-								pubDate,@"publicationDate",
-								currentSummary,@"articleSummary",
-								currentImage,@"articleImage",
+								currentTitle, @"articleTitle",
+								currentLink, @"articleURL",
+								pubDate, @"publicationDate",
+								[self stripTags:summary], @"articleSummary",
 								nil];
-		
+
 		[articles addObject:record];
-		
-		
+
 		itemActive = NO;
 	}
 }
@@ -252,6 +249,30 @@ didStartElement:(NSString *)elementName
 	
 	// Stop the 'Loading' overlay view.
 	[DSBezelActivityView removeViewAnimated:YES];
+}
+
+- (NSString *)stripTags:(NSString *)string {
+    /**
+     * Hackish method of stripping HTML from a string.
+     * @see http://mohrt.blogspot.com/2009/03/stripping-html-with-objective-ccocoa.html
+     */
+
+    NSString *text = nil;
+    NSScanner *theScanner = [NSScanner scannerWithString:string];
+
+    while ([theScanner isAtEnd] == NO) {
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL];
+        // find end of tag         
+        [theScanner scanUpToString:@">" intoString:&text];
+
+        // replace the found tag with a space
+        // (you can filter multi-spaces out later if you wish)
+        string = [string stringByReplacingOccurrencesOfString: [NSString stringWithFormat:@"%@>", text] withString:@" "];
+    }
+
+    // Also trim the text so whitespace is normalized.
+    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 

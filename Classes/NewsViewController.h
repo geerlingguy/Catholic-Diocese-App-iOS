@@ -27,7 +27,8 @@
 }
 
 - (IBAction)refreshXMLForArchdiocesanFeed:(id)sender;
--(void)refreshTheNews;
+- (void)refreshTheNews;
+- (NSString *)stripTags:(NSString *)string;
 
 
 @end
