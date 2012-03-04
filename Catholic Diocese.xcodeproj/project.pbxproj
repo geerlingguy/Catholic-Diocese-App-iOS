@@ -67,8 +67,6 @@
 		C379EDB1131A2EC10092F968 /* NewsNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C379EDAF131A2EC10092F968 /* NewsNavController.xib */; };
 		C3AA8E9013034F55007899DD /* ParishSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AA8E8E13034F55007899DD /* ParishSearchViewController.m */; };
 		C3AA8E9113034F55007899DD /* ParishSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AA8E8F13034F55007899DD /* ParishSearchView.xib */; };
-		C3AEE471130E26C700ED7B8F /* AddPrayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AEE46F130E26C700ED7B8F /* AddPrayerViewController.m */; };
-		C3AEE472130E26C700ED7B8F /* AddPrayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AEE470130E26C700ED7B8F /* AddPrayerView.xib */; };
 		C3AEE477130E2A7300ED7B8F /* PrayerNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AEE475130E2A7300ED7B8F /* PrayerNavController.m */; };
 		C3AEE478130E2A7300ED7B8F /* PrayerNavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3AEE476130E2A7300ED7B8F /* PrayerNavController.xib */; };
 		C3C26E311340ED2800E1B5C1 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C26E281340ED2800E1B5C1 /* CHCSVParser.m */; };
@@ -158,9 +156,6 @@
 		C3AA8E8D13034F55007899DD /* ParishSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParishSearchViewController.h; sourceTree = "<group>"; };
 		C3AA8E8E13034F55007899DD /* ParishSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParishSearchViewController.m; sourceTree = "<group>"; };
 		C3AA8E8F13034F55007899DD /* ParishSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParishSearchView.xib; sourceTree = "<group>"; };
-		C3AEE46E130E26C700ED7B8F /* AddPrayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrayerViewController.h; sourceTree = "<group>"; };
-		C3AEE46F130E26C700ED7B8F /* AddPrayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrayerViewController.m; sourceTree = "<group>"; };
-		C3AEE470130E26C700ED7B8F /* AddPrayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPrayerView.xib; sourceTree = "<group>"; };
 		C3AEE474130E2A7300ED7B8F /* PrayerNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerNavController.h; sourceTree = "<group>"; };
 		C3AEE475130E2A7300ED7B8F /* PrayerNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerNavController.m; sourceTree = "<group>"; };
 		C3AEE476130E2A7300ED7B8F /* PrayerNavController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrayerNavController.xib; sourceTree = "<group>"; };
@@ -404,9 +399,6 @@
 				B0DC207812FBC0B700DDB5CD /* PrayerViewController.h */,
 				B0DC207912FBC0B700DDB5CD /* PrayerViewController.m */,
 				282CCBFD0DB6C98000C4EA27 /* PrayerView.xib */,
-				C3AEE46E130E26C700ED7B8F /* AddPrayerViewController.h */,
-				C3AEE46F130E26C700ED7B8F /* AddPrayerViewController.m */,
-				C3AEE470130E26C700ED7B8F /* AddPrayerView.xib */,
 			);
 			name = Prayers;
 			sourceTree = "<group>";
@@ -503,7 +495,6 @@
 				C322B774130B000B00D836C5 /* forward-arrow@2x.png in Resources */,
 				B0E9550B130B6D880065D5FD /* tab-prayer.png in Resources */,
 				B0E9550C130B6D880065D5FD /* tab-prayer@2x.png in Resources */,
-				C3AEE472130E26C700ED7B8F /* AddPrayerView.xib in Resources */,
 				C3AEE478130E2A7300ED7B8F /* PrayerNavController.xib in Resources */,
 				C339A2D913124E08007D39DD /* ParishData.sqlite in Resources */,
 				C370A2561315AA5600FBCFA7 /* tab-info.png in Resources */,
@@ -544,7 +535,6 @@
 				B0720540130A11AA00CCE80D /* JJGNewsCell.m in Sources */,
 				C322B7F7130B1AA100D836C5 /* JJGCLController.m in Sources */,
 				C322B896130B33F700D836C5 /* DSActivityView.m in Sources */,
-				C3AEE471130E26C700ED7B8F /* AddPrayerViewController.m in Sources */,
 				C3AEE477130E2A7300ED7B8F /* PrayerNavController.m in Sources */,
 				B095DA101311A68A007E361C /* ParishEvents.m in Sources */,
 				B095DA8E1311BECD007E361C /* ParishData 2.xcdatamodel in Sources */,
