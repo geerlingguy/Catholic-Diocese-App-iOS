@@ -10,7 +10,8 @@
 
 @interface PrayerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *tblPrayers;
-	NSMutableArray *prayers;
+	NSArray *prayers;
+    NSArray *prayersFiles;
 }
 
 

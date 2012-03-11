@@ -6,7 +6,7 @@
 //
 
 #import "PrayerViewController.h"
-#import "WebViewController.h"
+#import "PrayerDetailViewController.h"
 
 
 @implementation PrayerViewController
@@ -16,9 +16,17 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-    // Build an array of prayers.
-    // TODO - Load prayers from XML file, SQLite db, or other source?
-    prayers = [NSMutableArray arrayWithObjects:@"Our Father", @"Hail Mary", nil];
+    // Build an array of the prayer names.
+    prayers = [NSArray arrayWithObjects:
+               @"Our Father",
+               @"Hail Mary",
+               @"Glory Be", nil];
+
+    // Build an array of the prayer file names (without .html).
+    prayersFiles = [NSArray arrayWithObjects:
+                    @"our-father",
+                    @"hail-mary",
+                    @"glory-be", nil];
 
     // Set the title of the navigation bar.
     self.navigationItem.title = @"Prayers";
@@ -59,11 +67,10 @@
      * Detect which row has been selected, and open the prayer.
      */
 
-    // TODO - Build a PrayerDetailViewController instead.
-    WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebView" bundle:[NSBundle mainBundle]];
-    webViewController.title = [prayers objectAtIndex:indexPath.row];
-	webViewController.webViewURL = [NSURL URLWithString:@"http://www.opensourcecatholic.com/"];
-    [self.navigationController pushViewController:webViewController animated:YES];
+    PrayerDetailViewController *prayerViewController = [[PrayerDetailViewController alloc] initWithNibName:@"PrayerDetailView" bundle:[NSBundle mainBundle]];
+    prayerViewController.title = [prayers objectAtIndex:indexPath.row];
+	prayerViewController.prayerViewURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[prayersFiles objectAtIndex:indexPath.row] ofType:@"html" inDirectory:@"prayers"]];
+    [self.navigationController pushViewController:prayerViewController animated:YES];
 
     // Deselect the selected row.
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; 

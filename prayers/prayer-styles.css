@@ -1,0 +1,18 @@
+/* CSS for Prayers */
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 170%;
+    line-height: 1.4em;
+    margin: 1em;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1em;
+}
+
+p {
+    font-size: 1.8em;
+    line-height: 1.3em;
+}
