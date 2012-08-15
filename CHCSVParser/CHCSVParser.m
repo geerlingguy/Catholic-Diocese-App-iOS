@@ -359,7 +359,7 @@ enum {
 		}
 	} else {
 		if ([previousCharacter isEqual:STRING_QUOTE] && [previousPreviousCharacter isEqual:STRING_BACKSLASH] == NO && balancedQuotes == YES && balancedEscapes == YES) {
-			NSString * reason = [NSString stringWithFormat:@"Invalid CSV format on line #%lu immediately after \"%@\"", currentLine, currentField];
+			NSString * reason = [NSString stringWithFormat:@"Invalid CSV format on line #%lu immediately after \"%@\"", (unsigned long)currentLine, currentField];
 			error = [[NSError alloc] initWithDomain:@"com.davedelong.csv" code:0 userInfo:[NSDictionary dictionaryWithObject:reason forKey:NSLocalizedDescriptionKey]];
 			return;
 		}
