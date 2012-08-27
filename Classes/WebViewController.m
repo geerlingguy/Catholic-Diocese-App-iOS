@@ -76,16 +76,15 @@
 														  delegate:self  
 												 cancelButtonTitle:@"Cancel"  
 											destructiveButtonTitle:nil 
-												 otherButtonTitles:NSLocalizedString(@"Open in Browser", @""),
-																   NSLocalizedString(@"Email Link...", @""), nil];
+												 otherButtonTitles:NSLocalizedString(@"OPEN_IN_BROWSER", nil),
+																   NSLocalizedString(@"EMAIL_LINK", @""), nil];
 	[actionButtonActionSheet showFromBarButtonItem:sender animated:YES];
 	[actionButtonActionSheet showInView:mainAppDelegate.window];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (actionSheet == actionButtonActionSheet) {
-		NSURL *currentURL = [[NSURL alloc] init];
-		currentURL = [[webView request] URL];
+		NSURL *currentURL = [[webView request] URL];
 		
 		switch (buttonIndex) {
 			case 0: // Open in Browser
@@ -93,7 +92,7 @@
 				break;
 				
 			case 1: { // Email Link...
-			  // @config - Email subject line.
+                // @config - Email subject line.
 				NSString *mailtoString = [[NSString alloc] initWithFormat:@"mailto:?subject=Link%%20from%%20Diocese%%20App&body=%@", [currentURL absoluteString]];
 				NSURL *mailtoURL = [[NSURL alloc] initWithString:mailtoString];
 				[[UIApplication sharedApplication] openURL:mailtoURL];

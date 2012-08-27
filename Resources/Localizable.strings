@@ -1,0 +1,38 @@
+/* 
+  Strings.strings
+  Catholic Diocese
+
+  Created by Jeff Geerling on 8/26/12.
+*/
+
+/* ParishMapViewController.m */
+"DROPPED_PIN" = "Dropped Pin";
+"ENTERED_LOCATION" = "The location you entered";
+"PARISH_NAME" = "Parish Name";
+"PARISH_DESCRIPTION" = "Parish Description";
+"PARISH_INFO" = "Parish Info"; /* Also in ParishSearchViewController.m */
+"PARISH_SEARCH" = "Parish Search";
+
+/* ParishDetailViewController */
+"SHOW_ON_MAP" = "Show Parish on Map";
+"MORE_INFO" = "More Information";
+"ADDRESS" = "Address";
+"MASS_TIMES" = "Mass Times";
+"RECONCILIATION_TIMES" = "Reconciliation Times";
+"ADORATION_TIMES" = "Adoration Times";
+"TAP_FOR_DIRECTIONS" = "Tap on address to get directions.";
+"INCORRECT_TIMES_NOTICE" = "Please contact this parish to confirm times, or if you find an incorrect time.";
+
+/* NewsViewController.m */
+"NEWS_FEED_URL" = "http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-news-example-rss.xml"; /* @config - News RSS feed URL */
+
+/* AboutViewController.m */
+"PRIVACY_POLICY_URL" = "http://www.example.com/privacy-policy"; /* @config - Privacy Policy URL */
+"MOBILE_APP_URL" = "http://www.example.com/mobile-app"; /* @config - Mobile App Info URL */
+
+/* WebViewController.m */
+"OPEN_IN_BROWSER" = "Open in Browser";
+"EMAIL_LINK" = "Email link...";
+
+/* Catholic_DioceseAppDelegate.m */
+"SACRAMENT_TIMES_CSV" = "http://www.example.com/sacrament-times.csv"; /* @config - Sacrament time data CSV URL */

@@ -272,9 +272,8 @@
      */
 
     @autoreleasepool {
-	// Retrieve the parish data from our CSV file on the server.
-	// @config - URL to csv file containing parish event time data.
-		NSString *csv = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.example.com/sacrament-times.csv"] encoding:NSASCIIStringEncoding error:nil];
+        // Retrieve the parish data from our CSV file on the server.
+		NSString *csv = [NSString stringWithContentsOfURL:[NSURL URLWithString:NSLocalizedString(@"SACRAMENT_TIMES_CSV", nil)] encoding:NSASCIIStringEncoding error:nil];
 		
 		// Check if the CSV file has data.
 		if ([csv length] != 0) {

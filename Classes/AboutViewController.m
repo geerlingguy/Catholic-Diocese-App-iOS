@@ -21,13 +21,11 @@
 #pragma mark Respond to UI outlets
 
 - (IBAction)openPrivacyPolicy:(id)sender {
-  // @config - Link to your organization's Privacy Policy.
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.example.org/privacy-policy"]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:NSLocalizedString(@"PRIVACY_POLICY_URL", nil)]];
 }
 
 - (IBAction)openMobileAppAboutPage:(id)sender {
-  // @config - Link to the Mobile App's about page.
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.example.org/mobile-app"]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:NSLocalizedString(@"MOBILE_APP_URL", nil)]];
 }
 
 

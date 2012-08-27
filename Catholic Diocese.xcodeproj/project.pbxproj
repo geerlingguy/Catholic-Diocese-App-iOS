@@ -16,6 +16,7 @@
 		2840D7CE1179279E00D7F93C /* NewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2840D7CD1179279E00D7F93C /* NewsView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		B0154F9215EB0F8100C3FCA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0154F9115EB0F8100C3FCA9 /* Localizable.strings */; };
 		B04685A8150D4EFE00C57829 /* prayers in Resources */ = {isa = PBXBuildFile; fileRef = B04685A7150D4EFE00C57829 /* prayers */; };
 		B04685AD150D517900C57829 /* PrayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04685AB150D517900C57829 /* PrayerDetailViewController.m */; };
 		B04685AE150D517900C57829 /* PrayerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04685AC150D517900C57829 /* PrayerDetailView.xib */; };
@@ -96,6 +97,7 @@
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Catholic_Diocese-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Catholic_Diocese-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B0154F9115EB0F8100C3FCA9 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		B04685A7150D4EFE00C57829 /* prayers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = prayers; path = Resources/prayers; sourceTree = "<group>"; };
 		B04685AA150D517900C57829 /* PrayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerDetailViewController.h; sourceTree = "<group>"; };
 		B04685AB150D517900C57829 /* PrayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerDetailViewController.m; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				C322B75E130AFFF000D836C5 /* Other Buttons */,
 				C322B75D130AFFD500D836C5 /* Tab Button Images */,
 				B072059A130A204B00CCE80D /* Icons */,
+				B0154F9115EB0F8100C3FCA9 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				B0EB040414F89D6100FCA20A /* default-news-article-image.png in Resources */,
 				B04685A8150D4EFE00C57829 /* prayers in Resources */,
 				B04685AE150D517900C57829 /* PrayerDetailView.xib in Resources */,
+				B0154F9215EB0F8100C3FCA9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

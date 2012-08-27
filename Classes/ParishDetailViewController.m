@@ -253,12 +253,12 @@
 			break;
 		}
 		case 4:
-			cellText = @"Show Parish on Map";
+			cellText = NSLocalizedString(@"SHOW_ON_MAP", nil);
 			cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			break;
         case 5:
-            cellText = @"More Information";
+            cellText = NSLocalizedString(@"MORE_INFO", nil);
 			cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
@@ -378,16 +378,16 @@
     NSString *headerTitle = nil;
     switch (section) {
         case 0:
-            headerTitle = @"Address"; // But view used instead (@see viewForHeaderInSection).
+            headerTitle = NSLocalizedString(@"ADDRESS", nil); // But view used instead (@see viewForHeaderInSection).
             break;
         case 1:
-            headerTitle = @"Mass Times";
+            headerTitle = NSLocalizedString(@"MASS_TIMES", nil);
             break;
 		case 2:
-			headerTitle = @"Reconciliation Times";
+			headerTitle = NSLocalizedString(@"RECONCILIATION_TIMES", nil);
 			break;
 		case 3:
-			headerTitle = @"Adoration Times";
+			headerTitle = NSLocalizedString(@"ADORATION_TIMES", nil);
 			break;
         case 4:
 		case 5:
@@ -410,14 +410,14 @@
 	NSString *footerTitle = nil;
     switch (section) {
         case 0:
-            footerTitle = @"Tap on address to get directions.";
+            footerTitle = NSLocalizedString(@"TAP_FOR_DIRECTIONS", nil);
             break;
         case 1: // Mass times
 		case 2: // Reconciliation times
 			footerTitle = nil;
 			break;
 		case 3: // Adoration times
-			footerTitle = @"Please contact this parish to confirm times, or if you find an incorrect time.";
+			footerTitle = NSLocalizedString(@"INCORRECT_TIMES_NOTICE", nil);
 			break;
         case 4:
 		case 5:

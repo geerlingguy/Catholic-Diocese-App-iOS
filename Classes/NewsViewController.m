@@ -40,8 +40,8 @@
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 		
 		// Set up URL and parser
-		// @config - Path to XML feed of the latest news.
-		NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://www.opensourcecatholic.com/sites/opensourcecatholic.com/files/project/resources/latest-news-example-rss.xml"]];
+        NSString *newsFeedUrl = NSLocalizedString(@"NEWS_FEED_URL", nil);
+		NSData *xml = [NSData dataWithContentsOfURL: [NSURL URLWithString:newsFeedUrl]];
 		parser = [[NSXMLParser alloc] initWithData:xml];
 		parser.delegate = self;
 		[parser parse];

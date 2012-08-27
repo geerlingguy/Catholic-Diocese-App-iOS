@@ -84,7 +84,7 @@
 	
 	// Set up parish detail controller, pass parish name and number to it
 	ParishDetailViewController *parishDetailViewController = [[ParishDetailViewController alloc] initWithNibName:@"ParishDetailView" bundle:nil];
-	parishDetailViewController.title = @"Parish Info";
+	parishDetailViewController.title = NSLocalizedString(@"PARISH_INFO", nil);
 	
 	// Account for search results, for parish number.
 	if (tableView == [[self searchDisplayController] searchResultsTableView]) {

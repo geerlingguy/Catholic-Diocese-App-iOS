@@ -103,12 +103,13 @@
 	if ([newCoordinates objectAtIndex:3] == @"dropPin") {
 		// Clear out previous user-entered dropped pin (so map doesn't get
         // cluttered).
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", @"Dropped Pin"];
+        NSString *droppedPin = NSLocalizedString(@"DROPPED_PIN", nil);
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", droppedPin];
 		[parishMap removeAnnotations:[parishMap.annotations filteredArrayUsingPredicate:predicate]];
 		
 		parishAnnotation *userAddedAnnotation = [[parishAnnotation alloc] initWithCoordinate:location];
-		userAddedAnnotation.title = @"Dropped Pin";
-		userAddedAnnotation.subtitle = @"The location you entered";
+		userAddedAnnotation.title = droppedPin;
+		userAddedAnnotation.subtitle = NSLocalizedString(@"ENTERED_LOCATION", nil);
 		userAddedAnnotation.parishTitle = nil;
 		userAddedAnnotation.number = nil;
 		[parishMap addAnnotation:userAddedAnnotation]; // Just add one at a time.
@@ -152,8 +153,8 @@
 	@autoreleasepool {
         // Set up variables for adding map annotations (later)
 		CLLocationCoordinate2D coords = CLLocationCoordinate2DMake(0,0);
-		NSString *pName = @"Parish Name";
-		NSString *pSubtitle = @"Parish Description";
+		NSString *pName = NSLocalizedString(@"PARISH_NAME", nil);
+		NSString *pSubtitle = NSLocalizedString(@"PARISH_DESCRIPTION", nil);
 		NSNumber *pNumber = 0;
 		
 		for (NSMutableDictionary *currentParishDictionary in mainAppDelegate.parishData) {
@@ -204,7 +205,7 @@
 	parishAnnotation* annotation;
 	annotation = (parishAnnotation *) pinView.annotation;
 	ParishDetailViewController *parishDetailViewController = [[ParishDetailViewController alloc] initWithNibName:@"ParishDetailView" bundle:nil];
-	parishDetailViewController.title = @"Parish Info";
+	parishDetailViewController.title = NSLocalizedString(@"PARISH_INFO", nil);
 	parishDetailViewController.parishTitle = annotation.parishTitle;
 	parishDetailViewController.number = annotation.number;
 	
@@ -279,7 +280,7 @@
      */
 
 	ParishSearchViewController *parishSearchViewController = [[ParishSearchViewController alloc] initWithNibName:@"ParishSearchView" bundle:nil];
-	parishSearchViewController.title = @"Parish Search";
+	parishSearchViewController.title = NSLocalizedString(@"PARISH_SEARCH", nil);
 	
 	[self.navigationController pushViewController:parishSearchViewController animated:YES];
 }
